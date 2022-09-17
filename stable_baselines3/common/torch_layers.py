@@ -74,6 +74,7 @@ class NatureCNN(BaseFeaturesExtractor):
         )
         n_input_channels = observation_space.shape[0]
         self.cnn = nn.Sequential(
+            th.ao.QuantStub(),
             nn.Conv2d(n_input_channels, 32, kernel_size=8, stride=4, padding=0),
             nn.ReLU(),
             nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=0),
@@ -81,6 +82,7 @@ class NatureCNN(BaseFeaturesExtractor):
             nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=0),
             nn.ReLU(),
             nn.Flatten(),
+            th.ao.DeQuantStub(),
         )
 
         # Compute shape by doing one forward pass
@@ -115,11 +117,9 @@ def create_mlp(
         activation function
     :return:
     """
-
+    modules  = [th.ao.QuantStub()]
     if len(net_arch) > 0:
-        modules = [nn.Linear(input_dim, net_arch[0]), activation_fn()]
-    else:
-        modules = []
+        modules  += [nn.Linear(input_dim, net_arch[0]), activation_fn()]
 
     for idx in range(len(net_arch) - 1):
         modules.append(nn.Linear(net_arch[idx], net_arch[idx + 1]))
