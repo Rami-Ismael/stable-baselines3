@@ -92,7 +92,7 @@ class VecVideoRecorder(VecEnvWrapper):
             self.video_recorder.capture_frame()
             self.recorded_frames += 1
             if self.recorded_frames > self.video_length:
-                print(f"Saving video to {self.video_recorder.path}")
+                #print(f"Saving video to {self.video_recorder.path}")
                 self.close_video_recorder()
         elif self._video_enabled():
             self.start_video_recorder()
@@ -106,7 +106,7 @@ class VecVideoRecorder(VecEnvWrapper):
         self.recorded_frames = 1
 
     def close(self) -> None:
-        VecEnvWrapper.close(self)
+        #VecEnvWrapper.close(self)
         self.close_video_recorder()
 
     def __del__(self):
