@@ -251,3 +251,97 @@ The original version, Stable Baselines, was created in the [robotics lab U2IS](h
 
 
 Logo credits: [L.M. Tenkes](https://www.instagram.com/lucillehue/)
+
+# Research Section
+# ToDo
+
+- [ ] What is the Quantzation Method in the Research 
+	- [ ] Ask for the review of the project
+- [ ] Clone Stable Baseline 3 add different quantization concept in the model 
+	- [ ] add flaq if you want quantization
+		- [ ] add a flaq want type of quantization
+	- [ ] fuse model
+	- [x] prepare my model 
+		- [ ] set your backedn
+	- [ ] convert my model
+	- [ ] test my model is int8
+		- [ ] size of the model
+		- [ ] inference of the model 
+	- [ ] upload your changes to your own github
+- [ ] add rl-zoo
+	- [ ] train the method 
+- [ ] Ask where to share my google Colab for a quantize resnet model 
+- [ ] Static Quantization
+- [ ] Dynamic Quantization 
+- [ ] Make sure the quantize method will work for all algorithm
+- [ ] Fix the Render on Fedora Device 
+
+# Open Source Library
+- PyTorch
+- Stable Baseline 3
+	- [DQN appraoch is a Double DQ Learning Appraoch instead of single Deep Q Neural Network](https://huggingface.co/blog/deep-rl-dqn#the-deep-q-network-dqn)
+- Weight and Bias 
+- Clean RL
+- [Stable Baseline Zoo 3](https://github.com/DLR-RM/rl-baselines3-zoo)
+# Tools
+[[Quantization Drawing 2022-08-29 16.12.05.excalidraw]]
+[[Quantize Aware Reinforcment Learning ToDo]]
+# Resources
+ https://github.com/pytorch/pytorch/issues/74028
+(beta) Static Quantization with Eager Mode in PyTorch[](https://pytorch.org/tutorials/advanced/static_quantization_tutorial.html#beta-static-quantization-with-eager-mode-in-pytorch)
+https://www.vedereai.com/introduction-to-quantization-on-pytorch/
+ - [PyTorch Quantization Aware Training](https://leimao.github.io/blog/PyTorch-Quantization-Aware-Training/)
+ - PyTorch Lightning Quantization by Thomas Viehmann
+	-  [Training and Edge Optimized Speech Recognition MOdel with PyTorch Lightning](https://medium.com/pytorch-lightning/training-an-edge-optimized-speech-recognition-model-with-pytorch-lightning-a0a6a0c2a413)
+# Google Colab
+- [Simple QAT Resenet](https://colab.research.google.com/drive/1O9qRw7s6W4uCNK7iDZxRy2N7uukqaL3d)
+- [qat](https://colab.research.google.com/drive/12bmRcHvZqCGkP4giMQgstLj90HnPlOGI)
+- [PyTorch Quantizse Aware Training example from PyTorch Quantization Documentation.](https://colab.research.google.com/drive/1TX1JYdjTHDg36VXvnrIqntkyaKrz8Lzv?usp=sharing)
+# Tips
+- [yes, `torch.quantization` is going to be replaced by `torch.ao.quantization` migration is in progress, we’ll make an announcement when it is done ](https://discuss.pytorch.org/t/what-is-the-difference-between-calling-torch-ao-quantize-and-torch-quantize/161245)
+#  Update Documentation
+- [ ]  pytorch  Quantization Mode Support[](https://pytorch.org/docs/stable/quantization.html#quantization-mode-support)
+# Code Help
+```Python
+import inspect
+from IPython.display import Markdown, display
+
+def pretty_print_source(source):
+    display(Markdown('```python\n' + source + '\n```'))
+    
+source = inspect.getsource(QuantLinear.__init__)  
+pretty_print_source(source)
+```
+
+# Implementation
+- I first use stable  baseline allowed to use many diffferent RL algorithm and in different environment. 
+	- I can add my  own model in the program. So , I can add quantize aware training in the model 
+		- How to add a custome model
+- convert the quantize model  to int 8 model
+- check the inference process
+- check the model performance
+# Reinforcement Learning
+- the  project need to deep q learning and actor critic model  in 2d and 3d environment 
+## Reinforcement Learning  Online Resources
+- [ Hugging Face Reinforcement Learning Online Resources](https://github.com/huggingface/deep-rl-class)
+
+#  Quantization
+- Quantize Aware Training
+- Static Aware Training
+- Dynamic Quantization
+
+# Quantize Aware Training
+
+## Example Script
+## Train a model
+- Double DQ Algorithm
+- n timesteps 1000
+- log internval 100
+- env CarPole-v1
+```Text
+python train.py --algo dqn --n-timesteps 1000 --log-interval 100 --env CartPole-v1 --seed 42
+```
+## Recorc the work of the previos Trained Model
+``` Python
+python -m utils.record_video --algo dqn  --env CartPole-v1  --folder logs -n 1000
+```

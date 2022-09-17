@@ -793,7 +793,6 @@ class BaseAlgorithm(ABC):
             # Retrieve state dict
             params[name] = attr.state_dict()
         return params
-
     def save(
         self,
         path: Union[str, pathlib.Path, io.BufferedIOBase],

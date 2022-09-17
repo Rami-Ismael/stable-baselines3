@@ -268,6 +268,7 @@ class CnnPolicy(DQNPolicy):
         normalize_images: bool = True,
         optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
         optimizer_kwargs: Optional[Dict[str, Any]] = None,
+        quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -280,6 +281,7 @@ class CnnPolicy(DQNPolicy):
             normalize_images,
             optimizer_class,
             optimizer_kwargs,
+            quantize_aware_training,
         )
 
 
