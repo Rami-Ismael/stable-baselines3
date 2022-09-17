@@ -130,6 +130,7 @@ def create_mlp(
         modules.append(nn.Linear(last_layer_dim, output_dim))
     if squash_output:
         modules.append(nn.Tanh())
+    modules.append(th.ao.DeQuantStub())
     return modules
 
 
