@@ -93,6 +93,7 @@ class DQN(OffPolicyAlgorithm):
         verbose: int = 0,
         seed: Optional[int] = None,
         device: Union[th.device, str] = "auto",
+        quantize_aware_training: bool = False,
         _init_setup_model: bool = True,
     ):
 

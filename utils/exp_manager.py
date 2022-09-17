@@ -94,6 +94,7 @@ class ExperimentManager:
         no_optim_plots: bool = False,
         device: Union[th.device, str] = "auto",
         yaml_file: Optional[str] = None,
+        quantize_aware_training: bool = False,
     ):
         super().__init__()
         self.algo = algo
@@ -163,6 +164,8 @@ class ExperimentManager:
             self.log_path, f"{self.env_name}_{get_latest_run_id(self.log_path, self.env_name) + 1}{uuid_str}"
         )
         self.params_path = f"{self.save_path}/{self.env_name}"
+        # Quantization
+        self.quantize_aware_training = quantize_aware_training
 
     def setup_experiment(self) -> Optional[Tuple[BaseAlgorithm, Dict[str, Any]]]:
         """
@@ -196,6 +199,7 @@ class ExperimentManager:
                 seed=self.seed,
                 verbose=self.verbose,
                 device=self.device,
+                quantize_aware_training = self.quantize_aware_training,
                 **self._hyperparams,
             )
 
