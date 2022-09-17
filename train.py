@@ -245,6 +245,7 @@ if __name__ == "__main__":  # noqa: C901
         # Normal training
         if model is not None:
             exp_manager.learn(model)
+            print( f"The Model {model} has been trained" )
             exp_manager.save_trained_model(model)
     else:
         exp_manager.hyperparameters_optimization()

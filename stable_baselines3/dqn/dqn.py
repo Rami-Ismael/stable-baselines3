@@ -269,7 +269,7 @@ class DQN(OffPolicyAlgorithm):
         reset_num_timesteps: bool = True,
     ) -> OffPolicyAlgorithm:
 
-        return super().learn(
+        model = super().learn(
             total_timesteps=total_timesteps,
             callback=callback,
             log_interval=log_interval,
@@ -280,8 +280,12 @@ class DQN(OffPolicyAlgorithm):
             eval_log_path=eval_log_path,
             reset_num_timesteps=reset_num_timesteps,
         )
+        th.ao.quantization.convert(model.policy.q_net, inplace=True)
+        th.ao.quantization.convert(model.policy.q_net_target, inplace=True)
+        return model
 
     def _excluded_save_params(self) -> List[str]:
+        print(f"The excluded params are {super()._excluded_save_params()}")
         return super()._excluded_save_params() + ["q_net", "q_net_target"]
 
     def _get_torch_save_params(self) -> Tuple[List[str], List[str]]:

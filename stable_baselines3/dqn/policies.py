@@ -1,4 +1,5 @@
 from pyexpat import model
+from rich import print
 import string
 from typing import Any, Dict, List, Optional, Type
 from rich import print
@@ -186,6 +187,7 @@ class DQNPolicy(BasePolicy):
         """
 
         self.q_net = self.make_q_net()
+        print(self.q_net)
         self.q_net_target = self.make_q_net()
         self.q_net_target.load_state_dict(self.q_net.state_dict())
         self.q_net_target.set_training_mode(False)

@@ -244,6 +244,7 @@ class ExperimentManager:
         """
         print(f"Saving to {self.save_path}")
         model.save(f"{self.save_path}/{self.env_name}")
+        print(f"The save path is {self.save_path}")
 
         if hasattr(model, "save_replay_buffer") and self.save_replay_buffer:
             print("Saving replay buffer")
