@@ -1,3 +1,5 @@
+from pyexpat import model
+import string
 from typing import Any, Dict, List, Optional, Type
 
 import gym
@@ -55,6 +57,9 @@ class QNetwork(BasePolicy):
         action_dim = self.action_space.n  # number of actions
         q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
         self.q_net = nn.Sequential(*q_net)
+        self.fuse_model()
+        self.set_q_config()
+        self.prepare_model()
 
     def forward(self, obs: th.Tensor) -> th.Tensor:
         """
@@ -83,8 +88,24 @@ class QNetwork(BasePolicy):
             )
         )
         return data
-
-
+    ## Fuse the Model For Quantize Aware Training
+    def fuse_model(self):
+        layres = []
+        for index in range( 1 , len(self.q_net) , 2):
+            layres+= [ index , index + 1 ]
+        th.ao.quantization.fuse_modules(self.q_net, [['1', '2'], ['3', '4']], inplace=True)
+    '''
+    # attach a global qconfig, which contains information about what kind
+    # of observers to attach. Use 'fbgemm' for server inference and
+    # 'qnnpack' for mobile inference. Other quantization configurations such
+    # as selecting symmetric or assymetric quantization and MinMax or L2Norm
+    # calibration techniques can be specified here.
+    model_fp32.qconfig = 
+    '''
+    def set_q_config(self, backend:string = 'fbgemm'):
+        self.q_net.qconfig = th.ao.quantization.get_default_qat_qconfig(backend)
+    def prepare_model(self):
+        th.ao.quantization.prepare(self.q_net ,  inplace=True)
 class DQNPolicy(BasePolicy):
     """
     Policy class with Q-Value Net and target net for DQN
