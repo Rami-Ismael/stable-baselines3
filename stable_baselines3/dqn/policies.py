@@ -1,6 +1,7 @@
 from pyexpat import model
 import string
 from typing import Any, Dict, List, Optional, Type
+from rich import print
 
 import gym
 import torch as th
@@ -38,6 +39,7 @@ class QNetwork(BasePolicy):
         net_arch: Optional[List[int]] = None,
         activation_fn: Type[nn.Module] = nn.ReLU,
         normalize_images: bool = True,
+        quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -57,9 +59,11 @@ class QNetwork(BasePolicy):
         action_dim = self.action_space.n  # number of actions
         q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
         self.q_net = nn.Sequential(*q_net)
-        self.fuse_model()
-        self.set_q_config()
-        self.prepare_model()
+        self.quantize_aware_training = quantize_aware_training
+        if self.quantize_aware_training:
+            self.fuse_model()
+            self.set_q_config()
+            self.prepare_model()
 
     def forward(self, obs: th.Tensor) -> th.Tensor:
         """
@@ -138,6 +142,7 @@ class DQNPolicy(BasePolicy):
         normalize_images: bool = True,
         optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
         optimizer_kwargs: Optional[Dict[str, Any]] = None,
+        quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -165,10 +170,11 @@ class DQNPolicy(BasePolicy):
             "activation_fn": self.activation_fn,
             "normalize_images": normalize_images,
         }
+        # Quantization
+        self.quantize_aware_training = quantize_aware_training
 
         self.q_net, self.q_net_target = None, None
         self._build(lr_schedule)
-
     def _build(self, lr_schedule: Schedule) -> None:
         """
         Create the network and the optimizer.
@@ -190,6 +196,7 @@ class DQNPolicy(BasePolicy):
     def make_q_net(self) -> QNetwork:
         # Make sure we always have separate networks for features extractors etc
         net_args = self._update_features_extractor(self.net_args, features_extractor=None)
+        net_args["quantize_aware_training"] = self.quantize_aware_training
         return QNetwork(**net_args).to(self.device)
 
     def forward(self, obs: th.Tensor, deterministic: bool = True) -> th.Tensor:

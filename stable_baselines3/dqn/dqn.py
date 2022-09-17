@@ -121,6 +121,7 @@ class DQN(OffPolicyAlgorithm):
             optimize_memory_usage=optimize_memory_usage,
             supported_action_spaces=(gym.spaces.Discrete,),
             support_multi_env=True,
+        quantize_aware_training = quantize_aware_training,
         )
 
         self.exploration_initial_eps = exploration_initial_eps

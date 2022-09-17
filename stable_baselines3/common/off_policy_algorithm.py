@@ -102,6 +102,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
         use_sde_at_warmup: bool = False,
         sde_support: bool = True,
         supported_action_spaces: Optional[Tuple[gym.spaces.Space, ...]] = None,
+        quantize_aware_training: bool = False,
     ):
 
         super().__init__(
@@ -144,6 +145,8 @@ class OffPolicyAlgorithm(BaseAlgorithm):
             self.policy_kwargs["use_sde"] = self.use_sde
         # For gSDE only
         self.use_sde_at_warmup = use_sde_at_warmup
+        # Quantization
+        self.quantize_aware_training = quantize_aware_training
 
     def _convert_train_freq(self) -> None:
         """
@@ -219,6 +222,7 @@ class OffPolicyAlgorithm(BaseAlgorithm):
             self.action_space,
             self.lr_schedule,
             **self.policy_kwargs,  # pytype:disable=not-instantiable
+            quantize_aware_training=self.quantize_aware_training,
         )
         self.policy = self.policy.to(self.device)
 
