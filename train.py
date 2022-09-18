@@ -10,6 +10,7 @@ import numpy as np
 import seaborn
 import torch as th
 from stable_baselines3.common.utils import set_random_seed
+import logging
 
 # Register custom envs
 import utils.import_envs  # noqa: F401 pytype: disable=import-error
@@ -17,6 +18,8 @@ from utils.exp_manager import ExperimentManager
 from utils.utils import ALGOS, StoreDict
 
 seaborn.set()
+logging.basicConfig( level=logging.DEBUG,
+                    format='%(asctime)s:%(levelname)s:%(filename)s:%(lineno)d:%(message)s')
 
 if __name__ == "__main__":  # noqa: C901
     parser = argparse.ArgumentParser()
@@ -145,15 +148,16 @@ if __name__ == "__main__":  # noqa: C901
     args = parser.parse_args()
 
     # Set the Quantize Aware Training
-    if args.qat ==0:
+    logging.info("Quantization Aware Training: {}".format(args.qat))
+    if args.qat == 0:
         args.qat = False
     elif args.qat == 1:
         args.qat = True
     else:
-        ValueError("qat should be 0 means there is not quantize aware training or 1 means there is quantize aware "
-                   "training")
-
-
+        ValueError('qat should be 0 means there is not quantize aware training or 1 means there is quantize aware '
+                   'training')
+        logging.error('qat should be 0 means there is not quantize aware training or 1 means there is quantize aware ')
+        args.qat = False
 
     # Going through custom gym packages to let them register in the global registory
     for env_module in args.gym_packages:
@@ -191,7 +195,6 @@ if __name__ == "__main__":  # noqa: C901
 
     print("=" * 10, env_id, "=" * 10)
     print(f"Seed: {args.seed}")
-    print(f"The quantization aware training is {args.qat}")
 
     if args.track:
         try:
@@ -263,7 +266,11 @@ if __name__ == "__main__":  # noqa: C901
         # Normal training
         if model is not None:
             exp_manager.learn(model)
-            print(f"The Model {model} has been trained")
+            logging.info(f'Finished training {args.algo} on {args.env} with {args.seed} seed and the resulting model is {model}')
+            if env_id == 'CartPole-v1':
+                logging.info(model.policy.q_net)
+                logging.info(f"The model policy of q target net is {model.policy.q_net_target}")
+            logging.info("Saving the trained agent")
             exp_manager.save_trained_model(model)
     else:
         exp_manager.hyperparameters_optimization()
