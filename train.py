@@ -156,7 +156,7 @@ if __name__ == "__main__":  # noqa: C901
     else:
         ValueError('qat should be 0 means there is not quantize aware training or 1 means there is quantize aware '
                    'training')
-        logging.error('qat should be 0 means there is not quantize aware training or 1 means there is quantize aware ')
+        logging.error('qat should be 0 meaning there is not quantize aware training or 1 meaning there is quantize aware ')
         args.qat = False
 
     # Going through custom gym packages to let them register in the global registory
