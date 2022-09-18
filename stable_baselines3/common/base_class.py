@@ -1,6 +1,7 @@
 """Abstract base classes for RL algorithms."""
 
 import io
+import logging
 import pathlib
 import time
 from abc import ABC, abstractmethod
@@ -753,6 +754,8 @@ class BaseAlgorithm(ABC):
             device=device,
             _init_setup_model=False,  # pytype: disable=not-instantiable,wrong-keyword-args
         )
+        logging.info(f"Loading a model without an environment, this model cannot be trained until it has a valid environment.")
+        logging.info(f"The model is {model}")
 
         # load parameters
         model.__dict__.update(data)

@@ -95,14 +95,9 @@ class NatureCNN(BaseFeaturesExtractor):
         return self.linear(self.cnn(observations))
 
 
-def create_mlp(
-    input_dim: int,
-    output_dim: int,
-    net_arch: List[int],
-    activation_fn: Type[nn.Module] = nn.ReLU,
-    squash_output: bool = False,
-    quantize_aware_training: bool = False,
-) -> List[nn.Module]:
+def create_mlp(input_dim: int, output_dim: int, net_arch: List[int], activation_fn: Type[nn.Module] = nn.ReLU,
+               squash_output: bool = False, quantize_aware_training: bool = False,
+               add_quant_stub=True) -> List[nn.Module]:
     """
     Create a multi layer perceptron (MLP), which is
     a collection of fully-connected layers each followed by an activation function.
@@ -119,7 +114,7 @@ def create_mlp(
     :return:
     """
     modules = []
-    if quantize_aware_training:
+    if quantize_aware_training and add_quant_stub:
         modules.append(th.ao.quantization.QuantStub())
     if len(net_arch) > 0:
         modules  += [nn.Linear(input_dim, net_arch[0]), activation_fn()]
@@ -153,7 +148,7 @@ class MlpExtractor(nn.Module):
        It is formatted like ``dict(vf=[<value layer sizes>], pi=[<policy layer sizes>])``.
        If it is missing any of the keys (pi or vf), no non-shared layers (empty list) is assumed.
 
-    For example to construct a network with one shared layer of size 55 followed by two non-shared layers for the value
+    For example to construct a network with one shared layer of size 56 followed by two non-shared layers for the value
     network of size 255 and a single non-shared layer of size 128 for the policy network, the following layers_spec
     would be used: ``[55, dict(vf=[255, 255], pi=[128])]``. A simple shared network topology with two layers of size 128
     would be specified as [128, 128].
