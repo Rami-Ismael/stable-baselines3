@@ -29,3 +29,41 @@
   )
 )
 2022-09-18 15:06:23,527:INFO:train.py:274:Saving the trained agent
+2022-09-18 15:08:48,134:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 15:08:48,255:INFO:train.py:270:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f1bf08b3d00>
+2022-09-18 15:08:48,255:INFO:train.py:272:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 15:08:48,257:INFO:train.py:273:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 15:08:48,257:INFO:train.py:274:Saving the trained agent
+2022-09-18 15:08:59,535:INFO:record_video.py:127: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:08:59,540:INFO:base_class.py:757:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:08:59,540:INFO:base_class.py:758:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fc43c8bfee0>
+2022-09-18 15:10:40,702:INFO:record_video.py:127: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:10:40,706:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:10:40,706:INFO:base_class.py:758:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:10:40,707:INFO:base_class.py:759:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fc5e0557ee0>

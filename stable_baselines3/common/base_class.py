@@ -715,6 +715,7 @@ class BaseAlgorithm(ABC):
         data, params, pytorch_variables = load_from_zip_file(
             path, device=device, custom_objects=custom_objects, print_system_info=print_system_info
         )
+        logging.info("Load from the zip files done.")
 
         # Remove stored device information and replace with ours
         if "policy_kwargs" in data:
