@@ -101,6 +101,7 @@ def create_mlp(
     net_arch: List[int],
     activation_fn: Type[nn.Module] = nn.ReLU,
     squash_output: bool = False,
+    quantize_aware_training: bool = False,
 ) -> List[nn.Module]:
     """
     Create a multi layer perceptron (MLP), which is
@@ -117,7 +118,9 @@ def create_mlp(
         activation function
     :return:
     """
-    modules  = [th.ao.quantization.QuantStub()]
+    modules = []
+    if quantize_aware_training:
+        modules.append(th.ao.quantization.QuantStub())
     if len(net_arch) > 0:
         modules  += [nn.Linear(input_dim, net_arch[0]), activation_fn()]
 
@@ -130,7 +133,8 @@ def create_mlp(
         modules.append(nn.Linear(last_layer_dim, output_dim))
     if squash_output:
         modules.append(nn.Tanh())
-    modules.append(th.ao.quantization.DeQuantStub())
+    if quantize_aware_training:
+        modules.append(th.ao.quantization.DeQuantStub())
     return modules
 
 
@@ -169,6 +173,7 @@ class MlpExtractor(nn.Module):
         net_arch: List[Union[int, Dict[str, List[int]]]],
         activation_fn: Type[nn.Module],
         device: Union[th.device, str] = "auto",
+        quantize_aware_training:bool = False,
     ):
         super().__init__()
         device = get_device(device)
@@ -176,6 +181,11 @@ class MlpExtractor(nn.Module):
         policy_only_layers = []  # Layer sizes of the network that only belongs to the policy network
         value_only_layers = []  # Layer sizes of the network that only belongs to the value network
         last_layer_dim_shared = feature_dim
+
+        #Quantization aware training
+        if quantize_aware_training:
+            self.quant = th.ao.quantization.QuantStub()
+            self.dequant = th.ao.quantization.DeQuantStub()
 
         # Iterate through the shared layers and build the shared parts of the network
         for layer in net_arch:

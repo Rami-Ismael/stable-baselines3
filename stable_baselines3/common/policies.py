@@ -425,6 +425,7 @@ class ActorCriticPolicy(BasePolicy):
         normalize_images: bool = True,
         optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
         optimizer_kwargs: Optional[Dict[str, Any]] = None,
+        quantize_aware_training: bool = False,
     ):
 
         if optimizer_kwargs is None:
@@ -432,6 +433,10 @@ class ActorCriticPolicy(BasePolicy):
             # Small values to avoid NaN in Adam optimizer
             if optimizer_class == th.optim.Adam:
                 optimizer_kwargs["eps"] = 1e-5
+
+        if quantize_aware_training:
+            self.quant = th.ao.quantization.QuantStub()
+            self.dequant = th.ao.quantization.DeQuantStub()
 
         super().__init__(
             observation_space,

@@ -1,6 +1,7 @@
 import sys
 import time
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
+from rich import print
 
 import gym
 import numpy as np
@@ -72,6 +73,7 @@ class OnPolicyAlgorithm(BaseAlgorithm):
         device: Union[th.device, str] = "auto",
         _init_setup_model: bool = True,
         supported_action_spaces: Optional[Tuple[gym.spaces.Space, ...]] = None,
+        quantize_aware_training: bool = False,
     ):
 
         super().__init__(
@@ -88,6 +90,7 @@ class OnPolicyAlgorithm(BaseAlgorithm):
             seed=seed,
             tensorboard_log=tensorboard_log,
             supported_action_spaces=supported_action_spaces,
+            quantize_aware_training=quantize_aware_training,
         )
 
         self.n_steps = n_steps
@@ -97,6 +100,7 @@ class OnPolicyAlgorithm(BaseAlgorithm):
         self.vf_coef = vf_coef
         self.max_grad_norm = max_grad_norm
         self.rollout_buffer = None
+        self.quantize_aware_training = quantize_aware_training
 
         if _init_setup_model:
             self._setup_model()
@@ -123,6 +127,7 @@ class OnPolicyAlgorithm(BaseAlgorithm):
             use_sde=self.use_sde,
             **self.policy_kwargs  # pytype:disable=not-instantiable
         )
+        print("self.policy", self.policy)
         self.policy = self.policy.to(self.device)
 
     def collect_rollouts(

@@ -32,15 +32,15 @@ class QNetwork(BasePolicy):
     """
 
     def __init__(
-        self,
-        observation_space: gym.spaces.Space,
-        action_space: gym.spaces.Space,
-        features_extractor: nn.Module,
-        features_dim: int,
-        net_arch: Optional[List[int]] = None,
-        activation_fn: Type[nn.Module] = nn.ReLU,
-        normalize_images: bool = True,
-        quantize_aware_training: bool = False,
+            self,
+            observation_space: gym.spaces.Space,
+            action_space: gym.spaces.Space,
+            features_extractor: nn.Module,
+            features_dim: int,
+            net_arch: Optional[List[int]] = None,
+            activation_fn: Type[nn.Module] = nn.ReLU,
+            normalize_images: bool = True,
+            quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -58,7 +58,11 @@ class QNetwork(BasePolicy):
         self.features_dim = features_dim
         self.normalize_images = normalize_images
         action_dim = self.action_space.n  # number of actions
-        q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
+        q_net = create_mlp(input_dim=self.features_dim,
+                           output_dim=action_dim,
+                           net_arch=self.net_arch,
+                           activation_fn=self.activation_fn,
+                           quantize_aware_training=quantize_aware_training)
         self.q_net = nn.Sequential(*q_net)
         self.quantize_aware_training = quantize_aware_training
         if self.quantize_aware_training:
@@ -93,12 +97,14 @@ class QNetwork(BasePolicy):
             )
         )
         return data
+
     ## Fuse the Model For Quantize Aware Training
     def fuse_model(self):
         layres = []
-        for index in range( 1 , len(self.q_net) , 2):
-            layres+= [ index , index + 1 ]
+        for index in range(1, len(self.q_net), 2):
+            layres += [index, index + 1]
         th.ao.quantization.fuse_modules(self.q_net, [['1', '2'], ['3', '4']], inplace=True)
+
     '''
     # attach a global qconfig, which contains information about what kind
     # of observers to attach. Use 'fbgemm' for server inference and
@@ -107,10 +113,14 @@ class QNetwork(BasePolicy):
     # calibration techniques can be specified here.
     model_fp32.qconfig = 
     '''
-    def set_q_config(self, backend:string = 'fbgemm'):
+
+    def set_q_config(self, backend: string = 'fbgemm'):
         self.q_net.qconfig = th.ao.quantization.get_default_qat_qconfig(backend)
+
     def prepare_model(self):
-        th.ao.quantization.prepare(self.q_net ,  inplace=True)
+        th.ao.quantization.prepare(self.q_net, inplace=True)
+
+
 class DQNPolicy(BasePolicy):
     """
     Policy class with Q-Value Net and target net for DQN
@@ -132,18 +142,18 @@ class DQNPolicy(BasePolicy):
     """
 
     def __init__(
-        self,
-        observation_space: gym.spaces.Space,
-        action_space: gym.spaces.Space,
-        lr_schedule: Schedule,
-        net_arch: Optional[List[int]] = None,
-        activation_fn: Type[nn.Module] = nn.ReLU,
-        features_extractor_class: Type[BaseFeaturesExtractor] = FlattenExtractor,
-        features_extractor_kwargs: Optional[Dict[str, Any]] = None,
-        normalize_images: bool = True,
-        optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
-        optimizer_kwargs: Optional[Dict[str, Any]] = None,
-        quantize_aware_training: bool = False,
+            self,
+            observation_space: gym.spaces.Space,
+            action_space: gym.spaces.Space,
+            lr_schedule: Schedule,
+            net_arch: Optional[List[int]] = None,
+            activation_fn: Type[nn.Module] = nn.ReLU,
+            features_extractor_class: Type[BaseFeaturesExtractor] = FlattenExtractor,
+            features_extractor_kwargs: Optional[Dict[str, Any]] = None,
+            normalize_images: bool = True,
+            optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
+            optimizer_kwargs: Optional[Dict[str, Any]] = None,
+            quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -176,6 +186,7 @@ class DQNPolicy(BasePolicy):
 
         self.q_net, self.q_net_target = None, None
         self._build(lr_schedule)
+
     def _build(self, lr_schedule: Schedule) -> None:
         """
         Create the network and the optimizer.
@@ -257,18 +268,18 @@ class CnnPolicy(DQNPolicy):
     """
 
     def __init__(
-        self,
-        observation_space: gym.spaces.Space,
-        action_space: gym.spaces.Space,
-        lr_schedule: Schedule,
-        net_arch: Optional[List[int]] = None,
-        activation_fn: Type[nn.Module] = nn.ReLU,
-        features_extractor_class: Type[BaseFeaturesExtractor] = NatureCNN,
-        features_extractor_kwargs: Optional[Dict[str, Any]] = None,
-        normalize_images: bool = True,
-        optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
-        optimizer_kwargs: Optional[Dict[str, Any]] = None,
-        quantize_aware_training: bool = False,
+            self,
+            observation_space: gym.spaces.Space,
+            action_space: gym.spaces.Space,
+            lr_schedule: Schedule,
+            net_arch: Optional[List[int]] = None,
+            activation_fn: Type[nn.Module] = nn.ReLU,
+            features_extractor_class: Type[BaseFeaturesExtractor] = NatureCNN,
+            features_extractor_kwargs: Optional[Dict[str, Any]] = None,
+            normalize_images: bool = True,
+            optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
+            optimizer_kwargs: Optional[Dict[str, Any]] = None,
+            quantize_aware_training: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -304,17 +315,17 @@ class MultiInputPolicy(DQNPolicy):
     """
 
     def __init__(
-        self,
-        observation_space: gym.spaces.Dict,
-        action_space: gym.spaces.Space,
-        lr_schedule: Schedule,
-        net_arch: Optional[List[int]] = None,
-        activation_fn: Type[nn.Module] = nn.ReLU,
-        features_extractor_class: Type[BaseFeaturesExtractor] = CombinedExtractor,
-        features_extractor_kwargs: Optional[Dict[str, Any]] = None,
-        normalize_images: bool = True,
-        optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
-        optimizer_kwargs: Optional[Dict[str, Any]] = None,
+            self,
+            observation_space: gym.spaces.Dict,
+            action_space: gym.spaces.Space,
+            lr_schedule: Schedule,
+            net_arch: Optional[List[int]] = None,
+            activation_fn: Type[nn.Module] = nn.ReLU,
+            features_extractor_class: Type[BaseFeaturesExtractor] = CombinedExtractor,
+            features_extractor_kwargs: Optional[Dict[str, Any]] = None,
+            normalize_images: bool = True,
+            optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
+            optimizer_kwargs: Optional[Dict[str, Any]] = None,
     ):
         super().__init__(
             observation_space,

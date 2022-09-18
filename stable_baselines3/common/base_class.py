@@ -102,6 +102,7 @@ class BaseAlgorithm(ABC):
         use_sde: bool = False,
         sde_sample_freq: int = -1,
         supported_action_spaces: Optional[Tuple[gym.spaces.Space, ...]] = None,
+        quantize_aware_training: bool = False,
     ):
         if isinstance(policy, str):
             self.policy_class = self._get_policy_from_name(policy)
@@ -153,6 +154,8 @@ class BaseAlgorithm(ABC):
         self._logger = None  # type: Logger
         # Whether the user passed a custom logger or not
         self._custom_logger = False
+        # Quantization
+        self.quantize_aware_training = quantize_aware_training
 
         # Create and wrap the env if needed
         if env is not None:
