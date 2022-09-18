@@ -20,14 +20,16 @@ seaborn.set()
 
 if __name__ == "__main__":  # noqa: C901
     parser = argparse.ArgumentParser()
-    parser.add_argument("--algo", help="RL Algorithm", default="ppo", type=str, required=False, choices=list(ALGOS.keys()))
+    parser.add_argument("--algo", help="RL Algorithm", default="ppo", type=str, required=False,
+                        choices=list(ALGOS.keys()))
     parser.add_argument("--env", type=str, default="CartPole-v1", help="environment ID")
     parser.add_argument("-tb", "--tensorboard-log", help="Tensorboard log dir", default="", type=str)
-    parser.add_argument("-i", "--trained-agent", help="Path to a pretrained agent to continue training", default="", type=str)
+    parser.add_argument("-i", "--trained-agent", help="Path to a pretrained agent to continue training", default="",
+                        type=str)
     parser.add_argument(
         "--truncate-last-trajectory",
         help="When using HER with online sampling the last trajectory "
-        "in the replay buffer will be truncated after reloading the replay buffer.",
+             "in the replay buffer will be truncated after reloading the replay buffer.",
         default=True,
         type=bool,
     )
@@ -37,19 +39,20 @@ if __name__ == "__main__":  # noqa: C901
     parser.add_argument(
         "--eval-freq",
         help="Evaluate the agent every n steps (if negative, no evaluation). "
-        "During hyperparameter optimization n-evaluations is used instead",
+             "During hyperparameter optimization n-evaluations is used instead",
         default=25000,
         type=int,
     )
     parser.add_argument(
         "--optimization-log-path",
         help="Path to save the evaluation log and optimal policy for each hyperparameter tried during optimization. "
-        "Disabled if no argument is passed.",
+             "Disabled if no argument is passed.",
         type=str,
     )
     parser.add_argument("--eval-episodes", help="Number of episodes to use for evaluation", default=5, type=int)
     parser.add_argument("--n-eval-envs", help="Number of environments for evaluation", default=1, type=int)
-    parser.add_argument("--save-freq", help="Save the model every n steps (if negative, no checkpoint)", default=-1, type=int)
+    parser.add_argument("--save-freq", help="Save the model every n steps (if negative, no checkpoint)", default=-1,
+                        type=int)
     parser.add_argument(
         "--save-replay-buffer", help="Save the replay buffer too (when applicable)", action="store_true", default=False
     )
@@ -60,14 +63,14 @@ if __name__ == "__main__":  # noqa: C901
     parser.add_argument(
         "--n-trials",
         help="Number of trials for optimizing hyperparameters. "
-        "This applies to each optimization runner, not the entire optimization process.",
+             "This applies to each optimization runner, not the entire optimization process.",
         type=int,
         default=500,
     )
     parser.add_argument(
         "--max-total-trials",
         help="Number of (potentially pruned) trials for optimizing hyperparameters. "
-        "This applies to the entire optimization process and takes precedence over --n-trials if set.",
+             "This applies to the entire optimization process and takes precedence over --n-trials if set.",
         type=int,
         default=None,
     )
@@ -96,7 +99,7 @@ if __name__ == "__main__":  # noqa: C901
     parser.add_argument(
         "--n-evaluations",
         help="Training policies are evaluated every n-timesteps // n-evaluations steps when doing hyperparameter optimization."
-        "Default is 1 evaluation per 100k timesteps.",
+             "Default is 1 evaluation per 100k timesteps.",
         type=int,
         default=None,
     )
@@ -113,7 +116,8 @@ if __name__ == "__main__":  # noqa: C901
         help="Additional external Gym environment package modules to import (e.g. gym_minigrid)",
     )
     parser.add_argument(
-        "--env-kwargs", type=str, nargs="+", action=StoreDict, help="Optional keyword argument to pass to the env constructor"
+        "--env-kwargs", type=str, nargs="+", action=StoreDict,
+        help="Optional keyword argument to pass to the env constructor"
     )
     parser.add_argument(
         "-params",
@@ -124,9 +128,11 @@ if __name__ == "__main__":  # noqa: C901
         help="Overwrite hyperparameter (e.g. learning_rate:0.01 train_freq:10)",
     )
     parser.add_argument(
-        "-yaml", "--yaml-file", type=str, default=None, help="Custom yaml file from which the hyperparameters will be loaded"
+        "-yaml", "--yaml-file", type=str, default=None,
+        help="Custom yaml file from which the hyperparameters will be loaded"
     )
-    parser.add_argument("-uuid", "--uuid", action="store_true", default=False, help="Ensure that the run has a unique ID")
+    parser.add_argument("-uuid", "--uuid", action="store_true", default=False,
+                        help="Ensure that the run has a unique ID")
     parser.add_argument(
         "--track",
         action="store_true",
@@ -135,8 +141,19 @@ if __name__ == "__main__":  # noqa: C901
     )
     parser.add_argument("--wandb-project-name", type=str, default="sb3", help="the wandb's project name")
     parser.add_argument("--wandb-entity", type=str, default=None, help="the entity (team) of wandb's project")
-    parser.add_argument("--qat" , type = bool , default = False , help = "quantization aware training" )
+    parser.add_argument("--qat", type=int, default=0, help="quantization aware training")
     args = parser.parse_args()
+
+    # Set the Quantize Aware Training
+    if args.qat ==0:
+        args.qat = False
+    elif args.qat == 1:
+        args.qat = True
+    else:
+        ValueError("qat should be 0 means there is not quantize aware training or 1 means there is quantize aware "
+                   "training")
+
+
 
     # Going through custom gym packages to let them register in the global registory
     for env_module in args.gym_packages:
@@ -157,7 +174,7 @@ if __name__ == "__main__":  # noqa: C901
     uuid_str = f"_{uuid.uuid4()}" if args.uuid else ""
     if args.seed < 0:
         # Seed but with a random one
-        args.seed = np.random.randint(2**32 - 1, dtype="int64").item()
+        args.seed = np.random.randint(2 ** 32 - 1, dtype="int64").item()
 
     set_random_seed(args.seed)
 
@@ -174,6 +191,7 @@ if __name__ == "__main__":  # noqa: C901
 
     print("=" * 10, env_id, "=" * 10)
     print(f"Seed: {args.seed}")
+    print(f"The quantization aware training is {args.qat}")
 
     if args.track:
         try:
@@ -230,7 +248,7 @@ if __name__ == "__main__":  # noqa: C901
         no_optim_plots=args.no_optim_plots,
         device=args.device,
         yaml_file=args.yaml_file,
-        quantize_aware_training = args.qat
+        quantize_aware_training=args.qat
     )
 
     # Prepare experiment and launch hyperparameter optimization if needed
@@ -245,8 +263,7 @@ if __name__ == "__main__":  # noqa: C901
         # Normal training
         if model is not None:
             exp_manager.learn(model)
-            print( f"The Model {model} has been trained" )
+            print(f"The Model {model} has been trained")
             exp_manager.save_trained_model(model)
     else:
         exp_manager.hyperparameters_optimization()
-

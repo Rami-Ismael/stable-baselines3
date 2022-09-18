@@ -136,6 +136,7 @@ class DQN(OffPolicyAlgorithm):
         # Linear schedule will be defined in `_setup_model()`
         self.exploration_schedule = None
         self.q_net, self.q_net_target = None, None
+        print("quantize_aware_training", quantize_aware_training)
 
         if _init_setup_model:
             self._setup_model()
@@ -280,8 +281,9 @@ class DQN(OffPolicyAlgorithm):
             eval_log_path=eval_log_path,
             reset_num_timesteps=reset_num_timesteps,
         )
-        th.ao.quantization.convert(model.policy.q_net, inplace=True)
-        th.ao.quantization.convert(model.policy.q_net_target, inplace=True)
+        if self.quantize_aware_training:
+            th.ao.quantization.convert(model.policy.q_net, inplace=True)
+            th.ao.quantization.convert(model.policy.q_net_target, inplace=True)
         return model
 
     def _excluded_save_params(self) -> List[str]:

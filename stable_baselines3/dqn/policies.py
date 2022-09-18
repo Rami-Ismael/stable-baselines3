@@ -51,6 +51,9 @@ class QNetwork(BasePolicy):
 
         if net_arch is None:
             net_arch = [64, 64]
+            
+        # Quantize Aware Training
+        self.quantize_aware_training = quantize_aware_training
 
         self.net_arch = net_arch
         self.activation_fn = activation_fn
@@ -62,9 +65,8 @@ class QNetwork(BasePolicy):
                            output_dim=action_dim,
                            net_arch=self.net_arch,
                            activation_fn=self.activation_fn,
-                           quantize_aware_training=quantize_aware_training)
+                           quantize_aware_training=self.quantize_aware_training)
         self.q_net = nn.Sequential(*q_net)
-        self.quantize_aware_training = quantize_aware_training
         if self.quantize_aware_training:
             self.fuse_model()
             self.set_q_config()
