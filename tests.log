@@ -1,0 +1,31 @@
+2022-09-18 15:06:23,399:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 15:06:23,525:INFO:train.py:270:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fb981693d00>
+2022-09-18 15:06:23,525:INFO:train.py:272:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 15:06:23,527:INFO:train.py:273:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 15:06:23,527:INFO:train.py:274:Saving the trained agent

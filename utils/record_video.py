@@ -1,4 +1,5 @@
 import argparse
+import logging
 import os
 import sys
 
@@ -10,7 +11,8 @@ from stable_baselines3.common.vec_env import VecVideoRecorder
 
 from utils.exp_manager import ExperimentManager
 from utils.utils import ALGOS, StoreDict, create_test_env, get_model_path, get_saved_hyperparams
-
+logging.basicConfig( filename="tests.log" , level=logging.DEBUG,
+                    format='%(asctime)s:%(levelname)s:%(filename)s:%(lineno)d:%(message)s')
 if __name__ == "__main__":  # noqa: C901
     parser = argparse.ArgumentParser()
     parser.add_argument("--env", help="environment ID", type=EnvironmentName, default="CartPole-v1")
@@ -122,7 +124,7 @@ if __name__ == "__main__":  # noqa: C901
             "clip_range": lambda _: 0.0,
         }
 
-    print(f"Loading {model_path}")
+    logging.info(f" Path of the model is {model_path}")
 
     model = ALGOS[algo].load(model_path, env=env, custom_objects=custom_objects, **kwargs)
 
