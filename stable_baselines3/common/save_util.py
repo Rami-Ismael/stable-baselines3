@@ -289,6 +289,7 @@ def save_to_zip_file(
     data: Optional[Dict[str, Any]] = None,
     params: Optional[Dict[str, Any]] = None,
     pytorch_variables: Optional[Dict[str, Any]] = None,
+    save_model:bool  = True,
     verbose: int = 0,
 ) -> None:
     """
@@ -309,17 +310,18 @@ def save_to_zip_file(
         serialized_data = data_to_json(data)
 
     # Create a zip-archive and write our objects there.
-    with zipfile.ZipFile(save_path, mode="w") as archive:
+    with zipfile.ZipFile(save_path, mode="a") as archive:
         # Do not try to save "None" elements
         if data is not None:
             archive.writestr("data", serialized_data)
         if pytorch_variables is not None:
             with archive.open("pytorch_variables.pth", mode="w", force_zip64=True) as pytorch_variables_file:
                 th.save(pytorch_variables, pytorch_variables_file)
-        if params is not None:
-            for file_name, dict_ in params.items():
-                with archive.open(file_name + ".pth", mode="w", force_zip64=True) as param_file:
-                    th.save(dict_, param_file)
+        if save_model:
+            if params is not None:
+                for file_name, dict_ in params.items():
+                    with archive.open(file_name + ".pth", mode="w", force_zip64=True) as param_file:
+                        th.save(dict_, param_file)
         # Save metadata: library version when file was saved
         archive.writestr("_stable_baselines3_version", sb3.__version__)
         # Save system info about the current python env

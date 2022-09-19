@@ -4,13 +4,17 @@ import io
 import logging
 import pathlib
 import time
+import zipfile
 from abc import ABC, abstractmethod
 from collections import deque
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Type, Union
 
 import gym
 import numpy as np
+import torch
 import torch as th
+import yaml
+from coverage.annotate import os
 
 from stable_baselines3.common import utils
 from stable_baselines3.common.callbacks import BaseCallback, CallbackList, ConvertCallback, EvalCallback
@@ -20,7 +24,8 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.noise import ActionNoise
 from stable_baselines3.common.policies import BasePolicy
 from stable_baselines3.common.preprocessing import check_for_nested_spaces, is_image_space, is_image_space_channels_first
-from stable_baselines3.common.save_util import load_from_zip_file, recursive_getattr, recursive_setattr, save_to_zip_file
+from stable_baselines3.common.save_util import load_from_zip_file, recursive_getattr, recursive_setattr, \
+    save_to_zip_file, open_path
 from stable_baselines3.common.type_aliases import GymEnv, MaybeCallback, Schedule
 from stable_baselines3.common.utils import (
     check_for_correct_spaces,
@@ -716,39 +721,57 @@ class BaseAlgorithm(ABC):
             path, device=device, custom_objects=custom_objects, print_system_info=print_system_info
         )
         logging.info("Load from the zip files done.")
-
+        logging.info("Loading from the zip file from the path: %s", path)
+        with open( os.path.join( path.replace(".zip", ""), "args.yml"), "r") as f:
+            args = yaml.load(f, Loader=yaml.Loader)
+        logging.info(f"The arguments of the training are: {args}")
         # Remove stored device information and replace with ours
-        if "policy_kwargs" in data:
-            if "device" in data["policy_kwargs"]:
-                del data["policy_kwargs"]["device"]
+        try:
+            if "policy_kwargs" in data:
+                if "device" in data["policy_kwargs"]:
+                    del data["policy_kwargs"]["device"]
+        except TypeError as e:
+            logging.warning("Could not remove device information from policy_kwargs: %s", e)
 
         if "policy_kwargs" in kwargs and kwargs["policy_kwargs"] != data["policy_kwargs"]:
             raise ValueError(
                 f"The specified policy kwargs do not equal the stored policy kwargs."
                 f"Stored kwargs: {data['policy_kwargs']}, specified kwargs: {kwargs['policy_kwargs']}"
             )
-
-        if "observation_space" not in data or "action_space" not in data:
-            raise KeyError("The observation_space and action_space were not given, can't verify new environments")
-
-        if env is not None:
-            # Wrap first if needed
-            env = cls._wrap_env(env, data["verbose"])
-            # Check if given env is valid
-            check_for_correct_spaces(env, data["observation_space"], data["action_space"])
-            # Discard `_last_obs`, this will force the env to reset before training
-            # See issue https://github.com/DLR-RM/stable-baselines3/issues/597
-            if force_reset and data is not None:
-                data["_last_obs"] = None
-            # `n_envs` must be updated. See issue https://github.com/DLR-RM/stable-baselines3/issues/1018
-            if data is not None:
-                data["n_envs"] = env.num_envs
-        else:
-            # Use stored env, if one exists. If not, continue as is (can be used for predict)
-            if "env" in data:
-                env = data["env"]
+        try:
+            if "observation_space" not in data or "action_space" not in data:
+                raise KeyError("The observation_space and action_space were not given, can't verify new environments")
+        except TypeError as e:
+            logging.warning("Could not verify new environment: %s", e)
+        try:
+            if env is not None:
+                # Wrap first if needed
+                env = cls._wrap_env(env, data["verbose"])
+                # Check if given env is valid
+                check_for_correct_spaces(env, data["observation_space"], data["action_space"])
+                # Discard `_last_obs`, this will force the env to reset before training
+                # See issue https://github.com/DLR-RM/stable-baselines3/issues/597
+                if force_reset and data is not None:
+                    data["_last_obs"] = None
+                # `n_envs` must be updated. See issue https://github.com/DLR-RM/stable-baselines3/issues/1018
+                if data is not None:
+                    data["n_envs"] = env.num_envs
+            else:
+                # Use stored env, if one exists. If not, continue as is (can be used for predict)
+                if "env" in data:
+                    env = data["env"]
+        except TypeError as e:
+            logging.warning("Could not verify new environment: %s", e)
 
         # noinspection PyArgumentList
+        logging.info("Creating new model instance.")
+        logging.info(f"What is the data: {data}")
+        temp_quant_aware = False
+        if "quantize_aware_training" in data and data["quantize_aware_training"]:
+            logging.info("Quantize aware training should not be enabled when loading a model right now as we making video. In the Init"
+                         "block in the Q-Network we are setting the quantize_aware_training to False")
+            data["quantize_aware_training"] = False
+            temp_quant_aware = True
         model = cls(  # pytype: disable=not-instantiable,wrong-keyword-args
             policy=data["policy_class"],
             env=env,
@@ -757,33 +780,41 @@ class BaseAlgorithm(ABC):
         )
         logging.info(f"Loading a model without an environment, this model cannot be trained until it has a valid environment.")
         logging.info(f"The model is {model}")
+        ## read a yml file and convert into a dictionary
+        if arguments["algo"]=="dqn":
+            load_path = open_path(path , "r" , suffix = ".zip")
+            with zipfile.ZipFile(load_path) as archive:
+                with archive.open("q_net.pth") as file:
+                    model.policy.q_net = torch.load(file, map_location = get_device(device))
+                with archive.open("target_q_net.pth") as file:
+                    model.policy.q_net_target = torch.load(file, map_location = get_device(device))
+        else:
+            # load parameters
+            model.__dict__.update(data)
+            model.__dict__.update(kwargs)
+            model._setup_model()
 
-        # load parameters
-        model.__dict__.update(data)
-        model.__dict__.update(kwargs)
-        model._setup_model()
+            # put state_dicts back in place
+            model.set_parameters(params, exact_match=True, device=device)
 
-        # put state_dicts back in place
-        model.set_parameters(params, exact_match=True, device=device)
+            # put other pytorch variables back in place
+            if pytorch_variables is not None:
+                for name in pytorch_variables:
+                    # Skip if PyTorch variable was not defined (to ensure backward compatibility).
+                    # This happens when using SAC/TQC.
+                    # SAC has an entropy coefficient which can be fixed or optimized.
+                    # If it is optimized, an additional PyTorch variable `log_ent_coef` is defined,
+                    # otherwise it is initialized to `None`.
+                    if pytorch_variables[name] is None:
+                        continue
+                    # Set the data attribute directly to avoid issue when using optimizers
+                    # See https://github.com/DLR-RM/stable-baselines3/issues/391
+                    recursive_setattr(model, name + ".data", pytorch_variables[name].data)
 
-        # put other pytorch variables back in place
-        if pytorch_variables is not None:
-            for name in pytorch_variables:
-                # Skip if PyTorch variable was not defined (to ensure backward compatibility).
-                # This happens when using SAC/TQC.
-                # SAC has an entropy coefficient which can be fixed or optimized.
-                # If it is optimized, an additional PyTorch variable `log_ent_coef` is defined,
-                # otherwise it is initialized to `None`.
-                if pytorch_variables[name] is None:
-                    continue
-                # Set the data attribute directly to avoid issue when using optimizers
-                # See https://github.com/DLR-RM/stable-baselines3/issues/391
-                recursive_setattr(model, name + ".data", pytorch_variables[name].data)
-
-        # Sample gSDE exploration matrix, so it uses the right device
-        # see issue #44
-        if model.use_sde:
-            model.policy.reset_noise()  # pytype: disable=attribute-error
+            # Sample gSDE exploration matrix, so it uses the right device
+            # see issue #44
+            if model.use_sde:
+                model.policy.reset_noise()  # pytype: disable=attribute-error
         return model
 
     def get_parameters(self) -> Dict[str, Dict]:
@@ -805,6 +836,7 @@ class BaseAlgorithm(ABC):
         path: Union[str, pathlib.Path, io.BufferedIOBase],
         exclude: Optional[Iterable[str]] = None,
         include: Optional[Iterable[str]] = None,
+        save_model:bool = True
     ) -> None:
         """
         Save all the attributes of the object and the model parameters in a zip-file.
@@ -848,4 +880,4 @@ class BaseAlgorithm(ABC):
         # Build dict of state_dicts
         params_to_save = self.get_parameters()
 
-        save_to_zip_file(path, data=data, params=params_to_save, pytorch_variables=pytorch_variables)
+        save_to_zip_file(path, data=data, params=params_to_save, pytorch_variables=pytorch_variables , save_model=save_model)
