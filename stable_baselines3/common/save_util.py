@@ -6,6 +6,7 @@ import base64
 import functools
 import io
 import json
+import logging
 import os
 import pathlib
 import pickle
@@ -307,6 +308,7 @@ def save_to_zip_file(
     # data/params can be None, so do not
     # try to serialize them blindly
     if data is not None:
+        logging.info("Serializing data")
         serialized_data = data_to_json(data)
 
     # Create a zip-archive and write our objects there.

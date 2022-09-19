@@ -293,6 +293,8 @@ if __name__ == "__main__":  # noqa: C901
                         th.save(model.policy.q_net, file)
                     with archive.open("q_net_target.pth", mode="w", force_zip64=True) as file:
                         th.save(model.policy.q_net_target, file)
+                th.save(model.policy.q_net, f"{exp_manager.save_path}/{exp_manager.env_name}/q_net.pth")
+                th.save(model.policy.q_net_target, f"{exp_manager.save_path}/{exp_manager.env_name}/q_net_target.pth")
                 exp_manager.save_trained_model(model, save_model=False)
 
     else:

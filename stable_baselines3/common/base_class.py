@@ -1,5 +1,6 @@
 """Abstract base classes for RL algorithms."""
 
+from cmath import log
 import io
 import json
 import logging
@@ -777,21 +778,28 @@ class BaseAlgorithm(ABC):
             args["quantize_aware_training"] = False
             temp_quant_aware = True
         model = cls(  # pytype: disable=not-instantiable,wrong-keyword-args
-            policy=env_arguments["policy_class"],
+            policy=data["policy_class"],
             env=env,
             device=device,
             _init_setup_model=False,  # pytype: disable=not-instantiable,wrong-keyword-args
         )
         logging.info(f"Loading a model without an environment, this model cannot be trained until it has a valid environment.")
         logging.info(f"The model is {model}")
+        logging.info(f"The model  policy is {model.policy}")
         ## read a yml file and convert into a dictionary
         if env_arguments["algo"]=="dqn":
-            load_path = open_path(path , "r" , suffix = ".zip")
-            with zipfile.ZipFile(load_path) as archive:
-                with archive.open("q_net.pth") as file:
-                    model.policy.q_net = torch.load(file, map_location = get_device(device))
-                with archive.open("target_q_net.pth") as file:
-                    model.policy.q_net_target = torch.load(file, map_location = get_device(device))
+            try:
+                load_path = open_path(path , "r" , suffix = ".zip")
+                with zipfile.ZipFile(load_path) as archive:
+                    with archive.open("q_net.pth") as file:
+                        model.policy.q_net = torch.load(file, map_location = get_device(device))
+                    with archive.open("target_q_net.pth") as file:
+                        model.policy.q_net_target = torch.load(file, map_location = get_device(device))
+            except Exception as e:
+                logging.warning("Could not load the Q-Network: %s", e)
+                model._setup_model()
+                model.policy.q_net = th.load(os.path.join(path.replace(".zip", ""), "q_net.pth"), map_location = get_device(device))
+                model.policy.q_net_target = th.load(os.path.join(path.replace(".zip", ""), "q_net_target.pth"), map_location = get_device(device))
         else:
             # load parameters
             model.__dict__.update(data)
@@ -883,5 +891,4 @@ class BaseAlgorithm(ABC):
 
         # Build dict of state_dicts
         params_to_save = self.get_parameters()
-
         save_to_zip_file(path, data=data, params=params_to_save, pytorch_variables=pytorch_variables , save_model=save_model)
