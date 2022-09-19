@@ -1,6 +1,7 @@
 """Abstract base classes for RL algorithms."""
 
 import io
+import json
 import logging
 import pathlib
 import time
@@ -724,7 +725,10 @@ class BaseAlgorithm(ABC):
         logging.info("Loading from the zip file from the path: %s", path)
         with open( os.path.join( path.replace(".zip", ""), "args.yml"), "r") as f:
             args = yaml.load(f, Loader=yaml.Loader)
+            ## Convert an OrderedDict to a dict
+            args = json.loads(json.dumps(args))
         logging.info(f"The arguments of the training are: {args}")
+        env_arguments = args
         # Remove stored device information and replace with ours
         try:
             if "policy_kwargs" in data:
@@ -767,13 +771,13 @@ class BaseAlgorithm(ABC):
         logging.info("Creating new model instance.")
         logging.info(f"What is the data: {data}")
         temp_quant_aware = False
-        if "quantize_aware_training" in data and data["quantize_aware_training"]:
+        if "quantize_aware_training" in args.keys() and args["quantize_aware_training"]:
             logging.info("Quantize aware training should not be enabled when loading a model right now as we making video. In the Init"
                          "block in the Q-Network we are setting the quantize_aware_training to False")
-            data["quantize_aware_training"] = False
+            args["quantize_aware_training"] = False
             temp_quant_aware = True
         model = cls(  # pytype: disable=not-instantiable,wrong-keyword-args
-            policy=data["policy_class"],
+            policy=env_arguments["policy_class"],
             env=env,
             device=device,
             _init_setup_model=False,  # pytype: disable=not-instantiable,wrong-keyword-args
@@ -781,7 +785,7 @@ class BaseAlgorithm(ABC):
         logging.info(f"Loading a model without an environment, this model cannot be trained until it has a valid environment.")
         logging.info(f"The model is {model}")
         ## read a yml file and convert into a dictionary
-        if arguments["algo"]=="dqn":
+        if env_arguments["algo"]=="dqn":
             load_path = open_path(path , "r" , suffix = ".zip")
             with zipfile.ZipFile(load_path) as archive:
                 with archive.open("q_net.pth") as file:

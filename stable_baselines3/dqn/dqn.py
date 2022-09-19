@@ -94,6 +94,7 @@ class DQN(OffPolicyAlgorithm):
         seed: Optional[int] = None,
         device: Union[th.device, str] = "auto",
         quantize_aware_training: bool = False,
+        fuse: bool = False,
         _init_setup_model: bool = True,
     ):
 
@@ -122,6 +123,7 @@ class DQN(OffPolicyAlgorithm):
             supported_action_spaces=(gym.spaces.Discrete,),
             support_multi_env=True,
             quantize_aware_training = quantize_aware_training,
+            fuse = fuse,
         )
 
         self.exploration_initial_eps = exploration_initial_eps
@@ -136,8 +138,6 @@ class DQN(OffPolicyAlgorithm):
         # Linear schedule will be defined in `_setup_model()`
         self.exploration_schedule = None
         self.q_net, self.q_net_target = None, None
-        print("quantize_aware_training", quantize_aware_training)
-
         if _init_setup_model:
             self._setup_model()
 

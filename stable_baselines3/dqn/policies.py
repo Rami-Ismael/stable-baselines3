@@ -42,6 +42,7 @@ class QNetwork(BasePolicy):
             activation_fn: Type[nn.Module] = nn.ReLU,
             normalize_images: bool = True,
             quantize_aware_training: bool = False,
+            fuse: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -52,9 +53,10 @@ class QNetwork(BasePolicy):
 
         if net_arch is None:
             net_arch = [64, 64]
-            
+
         # Quantize Aware Training
         self.quantize_aware_training = quantize_aware_training
+        self.fuse = fuse
 
         self.net_arch = net_arch
         self.activation_fn = activation_fn
@@ -66,10 +68,16 @@ class QNetwork(BasePolicy):
                            output_dim=action_dim,
                            net_arch=self.net_arch,
                            activation_fn=self.activation_fn,
-                           quantize_aware_training=self.quantize_aware_training)
+                           quantize_aware_training=fuse)
         self.q_net = nn.Sequential(*q_net)
+        if fuse:
+            try:
+                self.fuse_model()
+            except Exception as e:
+                logging.error(e)
+                logging.error("Fuse Model Failed")
         if self.quantize_aware_training:
-            self.fuse_model()
+            logging.info("Quantize Aware Training is enabled")
             self.set_q_config()
             self.prepare_model()
 
@@ -103,10 +111,10 @@ class QNetwork(BasePolicy):
 
     ## Fuse the Model For Quantize Aware Training
     def fuse_model(self):
-        layres = []
-        for index in range(1, len(self.q_net), 2):
-            layres += [index, index + 1]
-        th.ao.quantization.fuse_modules(self.q_net, [['1', '2'], ['3', '4']], inplace=True)
+        layers = []
+        for index in range(1, len(self.q_net)-2, 2):
+            layers.append([str(index), str(index+1)])
+        th.ao.quantization.fuse_modules(self.q_net, layers, inplace=True)
 
     '''
     # attach a global qconfig, which contains information about what kind
@@ -157,6 +165,7 @@ class DQNPolicy(BasePolicy):
             optimizer_class: Type[th.optim.Optimizer] = th.optim.Adam,
             optimizer_kwargs: Optional[Dict[str, Any]] = None,
             quantize_aware_training: bool = False,
+            fuse: bool = False,
     ):
         super().__init__(
             observation_space,
@@ -186,6 +195,7 @@ class DQNPolicy(BasePolicy):
         }
         # Quantization
         self.quantize_aware_training = quantize_aware_training
+        self.fuse = fuse
 
         self.q_net, self.q_net_target = None, None
         self._build(lr_schedule)
@@ -213,6 +223,7 @@ class DQNPolicy(BasePolicy):
         # Make sure we always have separate networks for features extractors etc
         net_args = self._update_features_extractor(self.net_args, features_extractor=None)
         net_args["quantize_aware_training"] = self.quantize_aware_training
+        net_args["fuse"] = self.fuse
         return QNetwork(**net_args).to(self.device)
 
     def forward(self, obs: th.Tensor, deterministic: bool = True) -> th.Tensor:

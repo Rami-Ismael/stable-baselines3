@@ -95,6 +95,7 @@ class ExperimentManager:
         device: Union[th.device, str] = "auto",
         yaml_file: Optional[str] = None,
         quantize_aware_training: bool = False,
+        fuse:bool = False,
     ):
         super().__init__()
         self.algo = algo
@@ -166,6 +167,7 @@ class ExperimentManager:
         self.params_path = f"{self.save_path}/{self.env_name}"
         # Quantization
         self.quantize_aware_training = quantize_aware_training
+        self.fuse = fuse
 
     def setup_experiment(self) -> Optional[Tuple[BaseAlgorithm, Dict[str, Any]]]:
         """
@@ -200,6 +202,7 @@ class ExperimentManager:
                 verbose=self.verbose,
                 device=self.device,
                 quantize_aware_training = self.quantize_aware_training,
+                fuse = self.fuse,
                 **self._hyperparams,
             )
 
@@ -235,7 +238,7 @@ class ExperimentManager:
             except EOFError:
                 pass
 
-    def save_trained_model(self, model: BaseAlgorithm) -> None:
+    def save_trained_model(self, model: BaseAlgorithm , save_model:bool=True) -> None:
         """
         Save trained model optionally with its replay buffer
         and ``VecNormalize`` statistics
@@ -243,7 +246,7 @@ class ExperimentManager:
         :param model:
         """
         print(f"Saving to {self.save_path}")
-        model.save(f"{self.save_path}/{self.env_name}")
+        model.save(f"{self.save_path}/{self.env_name}" , save_model = save_model)
         print(f"The save path is {self.save_path}")
 
         if hasattr(model, "save_replay_buffer") and self.save_replay_buffer:

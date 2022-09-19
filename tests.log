@@ -67,3 +67,1587 @@
 2022-09-18 15:10:40,706:INFO:base_class.py:718:Load from the zip files done.
 2022-09-18 15:10:40,706:INFO:base_class.py:758:Loading a model without an environment, this model cannot be trained until it has a valid environment.
 2022-09-18 15:10:40,707:INFO:base_class.py:759:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fc5e0557ee0>
+2022-09-18 15:14:17,209:INFO:record_video.py:127: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:14:17,213:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:14:17,213:INFO:base_class.py:758:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:14:17,214:INFO:base_class.py:759:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f9decd2be20>
+2022-09-18 15:14:17,224:INFO:policies.py:204: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:16:26,606:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:16:26,608:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:16:26,613:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:16:26,613:INFO:base_class.py:758:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:16:26,613:INFO:base_class.py:759:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7efea9673f70>
+2022-09-18 15:16:26,625:INFO:policies.py:204: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:17:20,720:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:17:20,723:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:17:20,723:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:17:20,727:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:17:20,728:INFO:base_class.py:758:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:17:20,728:INFO:base_class.py:759:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fdf78b63ee0>
+2022-09-18 15:17:20,741:INFO:policies.py:204: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:19:20,224:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:19:20,226:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:19:20,226:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:19:20,230:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:19:20,230:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:19:20,231:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f1f4a8295a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f1f4a82b490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:19:20,231:INFO:base_class.py:760:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:19:20,231:INFO:base_class.py:761:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f1f4a7f3ee0>
+2022-09-18 15:19:20,242:INFO:policies.py:204: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:22:22,647:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:22:22,649:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:22:22,649:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:22:22,652:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:22:22,653:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:22:22,653:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f61f015d5a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f61f015f490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:22:22,653:INFO:base_class.py:760:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:22:22,653:INFO:base_class.py:761:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f61f0127f70>
+2022-09-18 15:22:22,655:INFO:policies.py:72:Quantize Aware Training is enabled
+2022-09-18 15:22:22,664:INFO:policies.py:205: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:22:22,665:INFO:policies.py:72:Quantize Aware Training is enabled
+2022-09-18 15:27:27,035:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:27:27,037:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:27:27,037:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:27:27,040:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:27:27,041:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:27:27,041:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7fea2ea255a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7fea2ea27490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:27:27,041:INFO:base_class.py:755:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 15:27:27,041:INFO:base_class.py:763:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:27:27,041:INFO:base_class.py:764:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fea2e9efee0>
+2022-09-18 15:27:27,043:INFO:policies.py:72:Quantize Aware Training is enabled
+2022-09-18 15:27:27,054:INFO:policies.py:205: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:27:27,055:INFO:policies.py:72:Quantize Aware Training is enabled
+2022-09-18 15:27:35,573:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:27:35,575:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:27:35,575:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:27:35,579:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:27:35,579:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:27:35,580:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7fcfded1d5a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7fcfded1f490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:27:35,580:INFO:base_class.py:755:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 15:27:35,580:INFO:base_class.py:764:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 15:27:35,580:INFO:base_class.py:765:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fcfdece7ee0>
+2022-09-18 15:27:35,583:INFO:policies.py:205: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Linear(in_features=4, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=256, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=256, out_features=2, bias=True)
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 15:31:50,341:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:31:50,343:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:31:50,343:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:31:50,347:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:31:50,348:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:31:50,349:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f3907671510>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f3907673400>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:31:50,349:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 15:33:56,513:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 15:33:56,516:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_74/CartPole-v1.zip
+2022-09-18 15:33:56,516:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 15:33:56,520:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 15:33:56,520:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 15:33:56,521:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663531728207278556, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f3d5be51510>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.065652}, {'r': 17.0, 'l': 17, 't': 0.067643}, {'r': 16.0, 'l': 16, 't': 0.070116}, {'r': 31.0, 'l': 31, 't': 0.0742}, {'r': 22.0, 'l': 22, 't': 0.077048}, {'r': 15.0, 'l': 15, 't': 0.079588}, {'r': 15.0, 'l': 15, 't': 0.081438}, {'r': 17.0, 'l': 17, 't': 0.084188}, {'r': 16.0, 'l': 16, 't': 0.08598}, {'r': 25.0, 'l': 25, 't': 0.089667}, {'r': 19.0, 'l': 19, 't': 0.092319}, {'r': 18.0, 'l': 18, 't': 0.095007}, {'r': 13.0, 'l': 13, 't': 0.096637}, {'r': 12.0, 'l': 12, 't': 0.098135}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f3d5be53400>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 15:33:56,521:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:40:29,969:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 16:40:55,284:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 16:40:55,326:INFO:policies.py:73:Fusing the model
+2022-09-18 16:40:55,326:INFO:policies.py:76:Quantize Aware Training is enabled
+2022-09-18 16:40:55,340:INFO:policies.py:210: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 16:40:55,341:INFO:policies.py:73:Fusing the model
+2022-09-18 16:40:55,341:INFO:policies.py:76:Quantize Aware Training is enabled
+2022-09-18 16:40:55,409:INFO:train.py:271:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fd45ec8fd90>
+2022-09-18 16:40:55,409:INFO:train.py:274:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 16:40:55,411:INFO:train.py:275:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 16:40:55,411:INFO:train.py:276:Saving the trained agent
+2022-09-18 16:41:35,736:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:41:35,739:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_75/CartPole-v1.zip
+2022-09-18 16:41:35,739:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:41:35,756:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:41:35,756:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:41:35,757:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663537255354409155, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f719a0c5630>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.039234}, {'r': 17.0, 'l': 17, 't': 0.041154}, {'r': 16.0, 'l': 16, 't': 0.043609}, {'r': 31.0, 'l': 31, 't': 0.047883}, {'r': 22.0, 'l': 22, 't': 0.051282}, {'r': 15.0, 'l': 15, 't': 0.054013}, {'r': 15.0, 'l': 15, 't': 0.055974}, {'r': 17.0, 'l': 17, 't': 0.058782}, {'r': 16.0, 'l': 16, 't': 0.060765}, {'r': 25.0, 'l': 25, 't': 0.064785}, {'r': 19.0, 'l': 19, 't': 0.06801}, {'r': 18.0, 'l': 18, 't': 0.071035}, {'r': 13.0, 'l': 13, 't': 0.072837}, {'r': 12.0, 'l': 12, 't': 0.074556}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f719a0c7520>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:41:35,757:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:41:53,914:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:41:53,917:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_75/CartPole-v1.zip
+2022-09-18 16:41:53,917:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:41:53,922:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:41:53,922:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:41:53,923:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663537255354409155, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7fcceaeed5a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.039234}, {'r': 17.0, 'l': 17, 't': 0.041154}, {'r': 16.0, 'l': 16, 't': 0.043609}, {'r': 31.0, 'l': 31, 't': 0.047883}, {'r': 22.0, 'l': 22, 't': 0.051282}, {'r': 15.0, 'l': 15, 't': 0.054013}, {'r': 15.0, 'l': 15, 't': 0.055974}, {'r': 17.0, 'l': 17, 't': 0.058782}, {'r': 16.0, 'l': 16, 't': 0.060765}, {'r': 25.0, 'l': 25, 't': 0.064785}, {'r': 19.0, 'l': 19, 't': 0.06801}, {'r': 18.0, 'l': 18, 't': 0.071035}, {'r': 13.0, 'l': 13, 't': 0.072837}, {'r': 12.0, 'l': 12, 't': 0.074556}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7fcceaeef490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:41:53,923:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:41:53,923:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 16:41:53,923:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fcceaebfee0>
+2022-09-18 16:41:53,925:INFO:policies.py:73:Fusing the model
+2022-09-18 16:43:44,489:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 16:43:44,511:INFO:policies.py:73:Fusing the model
+2022-09-18 16:44:10,667:INFO:train.py:151:Quantization Aware Training: 1
+2022-09-18 16:44:10,683:INFO:policies.py:73:Fusing the model
+2022-09-18 16:44:10,683:INFO:policies.py:76:Quantize Aware Training is enabled
+2022-09-18 16:44:10,693:INFO:policies.py:210: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 16:44:10,694:INFO:policies.py:73:Fusing the model
+2022-09-18 16:44:10,695:INFO:policies.py:76:Quantize Aware Training is enabled
+2022-09-18 16:44:10,764:INFO:train.py:271:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f8ce5793dc0>
+2022-09-18 16:44:10,765:INFO:train.py:274:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 16:44:10,767:INFO:train.py:275:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 16:44:10,767:INFO:train.py:276:Saving the trained agent
+2022-09-18 16:44:51,129:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:44:51,131:INFO:record_video.py:128: Path of the model is logs/dqn/Acrobot-v1_1/Acrobot-v1.zip
+2022-09-18 16:44:51,131:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:44:51,154:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:44:51,154:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:44:51,155:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([ -1.        -1.        -1.        -1.       -12.566371 -28.274334], [ 1.        1.        1.        1.       12.566371 28.274334], (6,), float32), 'action_space': Discrete(3), 'n_envs': 1, 'num_timesteps': 1000, '_total_timesteps': 1000, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663516371983217427, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f683e2c5630>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.46196914, -0.886896  , -0.03570399,  0.9993624 ,  1.0285373 ,
+        -0.12173789]], dtype=float32), '_episode_num': 2, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': 0.0, 'ep_info_buffer': deque([{'r': -389.0, 'l': 390, 't': 1.586096}, {'r': -500.0, 'l': 500, 't': 4.153689}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 1000, 'quantize_aware_training': False, 'buffer_size': 50000, 'batch_size': 128, 'learning_starts': 0, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': -1, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=4, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.1, 'exploration_fraction': 0.12, 'target_update_interval': 250, '_n_calls': 1000, 'max_grad_norm': 10, 'exploration_rate': 0.1, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f683e2c7520>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:44:51,155:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 16:44:51,155:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f683e28fdf0>
+2022-09-18 16:44:51,159:INFO:policies.py:210: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Linear(in_features=6, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=256, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=256, out_features=3, bias=True)
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 16:45:33,768:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:45:33,770:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_77/CartPole-v1.zip
+2022-09-18 16:45:33,770:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:45:33,774:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:45:33,775:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:45:33,775:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663537450709591372, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f05e35e5630>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.033688}, {'r': 17.0, 'l': 17, 't': 0.036578}, {'r': 16.0, 'l': 16, 't': 0.040161}, {'r': 31.0, 'l': 31, 't': 0.044301}, {'r': 22.0, 'l': 22, 't': 0.047106}, {'r': 15.0, 'l': 15, 't': 0.05029}, {'r': 15.0, 'l': 15, 't': 0.052771}, {'r': 17.0, 'l': 17, 't': 0.056625}, {'r': 16.0, 'l': 16, 't': 0.058581}, {'r': 25.0, 'l': 25, 't': 0.062302}, {'r': 19.0, 'l': 19, 't': 0.064921}, {'r': 18.0, 'l': 18, 't': 0.067836}, {'r': 13.0, 'l': 13, 't': 0.070057}, {'r': 12.0, 'l': 12, 't': 0.072074}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f05e35e7520>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:45:33,775:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:45:33,775:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 16:45:33,775:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f05e35afe20>
+2022-09-18 16:45:33,777:INFO:policies.py:73:Fusing the model
+2022-09-18 16:46:50,586:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:46:50,589:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_77/CartPole-v1.zip
+2022-09-18 16:46:50,589:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:46:50,594:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:46:50,594:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:46:50,595:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663537450709591372, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f37748915a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.033688}, {'r': 17.0, 'l': 17, 't': 0.036578}, {'r': 16.0, 'l': 16, 't': 0.040161}, {'r': 31.0, 'l': 31, 't': 0.044301}, {'r': 22.0, 'l': 22, 't': 0.047106}, {'r': 15.0, 'l': 15, 't': 0.05029}, {'r': 15.0, 'l': 15, 't': 0.052771}, {'r': 17.0, 'l': 17, 't': 0.056625}, {'r': 16.0, 'l': 16, 't': 0.058581}, {'r': 25.0, 'l': 25, 't': 0.062302}, {'r': 19.0, 'l': 19, 't': 0.064921}, {'r': 18.0, 'l': 18, 't': 0.067836}, {'r': 13.0, 'l': 13, 't': 0.070057}, {'r': 12.0, 'l': 12, 't': 0.072074}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f3774893490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:46:50,595:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:46:50,595:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 16:46:50,595:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f377485bf70>
+2022-09-18 16:46:50,598:ERROR:policies.py:76:did not find fuser method for: (<class 'torch.nn.modules.activation.ReLU'>, <class 'torch.nn.modules.linear.Linear'>) 
+2022-09-18 16:46:50,598:ERROR:policies.py:77:Fuse Model Failed
+2022-09-18 16:46:50,598:INFO:policies.py:213: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Linear(in_features=4, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=256, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=256, out_features=2, bias=True)
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 16:46:50,599:ERROR:policies.py:76:did not find fuser method for: (<class 'torch.nn.modules.activation.ReLU'>, <class 'torch.nn.modules.linear.Linear'>) 
+2022-09-18 16:46:50,599:ERROR:policies.py:77:Fuse Model Failed
+2022-09-18 16:50:04,192:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 16:50:04,194:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_77/CartPole-v1.zip
+2022-09-18 16:50:04,194:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 16:50:04,198:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 16:50:04,198:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 16:50:04,199:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663537450709591372, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f6b9c1a15a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.033688}, {'r': 17.0, 'l': 17, 't': 0.036578}, {'r': 16.0, 'l': 16, 't': 0.040161}, {'r': 31.0, 'l': 31, 't': 0.044301}, {'r': 22.0, 'l': 22, 't': 0.047106}, {'r': 15.0, 'l': 15, 't': 0.05029}, {'r': 15.0, 'l': 15, 't': 0.052771}, {'r': 17.0, 'l': 17, 't': 0.056625}, {'r': 16.0, 'l': 16, 't': 0.058581}, {'r': 25.0, 'l': 25, 't': 0.062302}, {'r': 19.0, 'l': 19, 't': 0.064921}, {'r': 18.0, 'l': 18, 't': 0.067836}, {'r': 13.0, 'l': 13, 't': 0.070057}, {'r': 12.0, 'l': 12, 't': 0.072074}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f6b9c1a3490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 16:50:04,199:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 16:50:04,199:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 16:50:04,199:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f6b9c16fee0>
+2022-09-18 16:50:04,201:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub()
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+    )
+    (4): Identity()
+    (5): Linear(in_features=256, out_features=2, bias=True)
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 18:07:43,644:INFO:train.py:154:Quantization Aware Training: 1
+2022-09-18 18:07:43,670:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 18:07:43,683:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 18:07:43,684:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 18:07:43,746:INFO:train.py:274:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f38eeadc8e0>
+2022-09-18 18:07:43,746:INFO:train.py:277:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 18:07:43,748:INFO:train.py:278:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 18:07:43,748:INFO:train.py:279:Saving the trained agent
+2022-09-18 18:07:43,748:INFO:train.py:283:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 18:08:44,269:INFO:train.py:154:Quantization Aware Training: 1
+2022-09-18 18:08:44,283:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 18:08:44,293:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 18:08:44,294:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 18:08:44,363:INFO:train.py:274:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fa6a68c0790>
+2022-09-18 18:08:44,363:INFO:train.py:277:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 18:08:44,365:INFO:train.py:278:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 18:08:44,365:INFO:train.py:279:Saving the trained agent
+2022-09-18 18:08:44,365:INFO:train.py:283:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 18:13:09,805:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 18:13:09,807:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_79/CartPole-v1.zip
+2022-09-18 18:13:09,807:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 18:13:09,817:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 19:19:41,830:INFO:train.py:154:Quantization Aware Training: 1
+2022-09-18 19:19:41,853:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:19:41,869:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:19:41,870:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:19:41,938:INFO:train.py:274:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f357dfc4910>
+2022-09-18 19:19:41,938:INFO:train.py:277:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:19:41,940:INFO:train.py:278:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:19:41,940:INFO:train.py:279:Saving the trained agent
+2022-09-18 19:19:41,940:INFO:train.py:283:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:19:51,585:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 19:19:51,588:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_80/CartPole-v1.zip
+2022-09-18 19:19:51,588:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 19:19:51,590:INFO:base_class.py:718:Load from the zip files done.
+2022-09-18 19:19:51,590:INFO:base_class.py:752:Creating new model instance.
+2022-09-18 19:19:51,591:INFO:base_class.py:753:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663546781883758645, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f82f9c29630>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.04209}, {'r': 17.0, 'l': 17, 't': 0.044059}, {'r': 16.0, 'l': 16, 't': 0.047692}, {'r': 31.0, 'l': 31, 't': 0.052025}, {'r': 22.0, 'l': 22, 't': 0.05482}, {'r': 15.0, 'l': 15, 't': 0.056918}, {'r': 15.0, 'l': 15, 't': 0.05937}, {'r': 17.0, 'l': 17, 't': 0.061911}, {'r': 16.0, 'l': 16, 't': 0.063542}, {'r': 25.0, 'l': 25, 't': 0.06773}, {'r': 19.0, 'l': 19, 't': 0.070439}, {'r': 18.0, 'l': 18, 't': 0.072754}, {'r': 13.0, 'l': 13, 't': 0.074641}, {'r': 12.0, 'l': 12, 't': 0.076562}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f82f9c2b520>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 19:19:51,591:INFO:base_class.py:756:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 19:19:51,591:INFO:base_class.py:766:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 19:19:51,591:INFO:base_class.py:767:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f82f9bf3ee0>
+2022-09-18 19:19:51,594:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub()
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+    )
+    (4): Identity()
+    (5): Linear(in_features=256, out_features=2, bias=True)
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:36:59,084:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 19:36:59,086:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_80/CartPole-v1.zip
+2022-09-18 19:36:59,086:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 19:36:59,088:INFO:base_class.py:721:Load from the zip files done.
+2022-09-18 19:36:59,088:INFO:base_class.py:755:Creating new model instance.
+2022-09-18 19:36:59,088:INFO:base_class.py:756:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663546781883758645, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7fb0cdf6d5a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.04209}, {'r': 17.0, 'l': 17, 't': 0.044059}, {'r': 16.0, 'l': 16, 't': 0.047692}, {'r': 31.0, 'l': 31, 't': 0.052025}, {'r': 22.0, 'l': 22, 't': 0.05482}, {'r': 15.0, 'l': 15, 't': 0.056918}, {'r': 15.0, 'l': 15, 't': 0.05937}, {'r': 17.0, 'l': 17, 't': 0.061911}, {'r': 16.0, 'l': 16, 't': 0.063542}, {'r': 25.0, 'l': 25, 't': 0.06773}, {'r': 19.0, 'l': 19, 't': 0.070439}, {'r': 18.0, 'l': 18, 't': 0.072754}, {'r': 13.0, 'l': 13, 't': 0.074641}, {'r': 12.0, 'l': 12, 't': 0.076562}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7fb0cdf6f490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 19:36:59,088:INFO:base_class.py:759:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 19:36:59,089:INFO:base_class.py:769:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 19:36:59,089:INFO:base_class.py:770:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fb0cdf5e380>
+2022-09-18 19:38:51,424:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 19:38:51,426:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_80/CartPole-v1.zip
+2022-09-18 19:38:51,426:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 19:38:51,428:INFO:base_class.py:721:Load from the zip files done.
+2022-09-18 19:38:51,428:INFO:base_class.py:755:Creating new model instance.
+2022-09-18 19:38:51,429:INFO:base_class.py:756:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663546781883758645, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7f33c9c915a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.04209}, {'r': 17.0, 'l': 17, 't': 0.044059}, {'r': 16.0, 'l': 16, 't': 0.047692}, {'r': 31.0, 'l': 31, 't': 0.052025}, {'r': 22.0, 'l': 22, 't': 0.05482}, {'r': 15.0, 'l': 15, 't': 0.056918}, {'r': 15.0, 'l': 15, 't': 0.05937}, {'r': 17.0, 'l': 17, 't': 0.061911}, {'r': 16.0, 'l': 16, 't': 0.063542}, {'r': 25.0, 'l': 25, 't': 0.06773}, {'r': 19.0, 'l': 19, 't': 0.070439}, {'r': 18.0, 'l': 18, 't': 0.072754}, {'r': 13.0, 'l': 13, 't': 0.074641}, {'r': 12.0, 'l': 12, 't': 0.076562}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7f33c9c93490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 19:38:51,429:INFO:base_class.py:759:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 19:38:51,429:INFO:base_class.py:769:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 19:38:51,429:INFO:base_class.py:770:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7f33c9c7e380>
+2022-09-18 19:41:40,010:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 19:41:40,012:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_80/CartPole-v1.zip
+2022-09-18 19:41:40,012:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 19:41:40,014:INFO:base_class.py:721:Load from the zip files done.
+2022-09-18 19:41:40,014:INFO:base_class.py:755:Creating new model instance.
+2022-09-18 19:41:40,014:INFO:base_class.py:756:What is the data: {'policy_class': <class 'stable_baselines3.dqn.policies.DQNPolicy'>, 'verbose': 1, 'policy_kwargs': {'net_arch': [256, 256]}, 'observation_space': Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32), 'action_space': Discrete(2), 'n_envs': 1, 'num_timesteps': 256, '_total_timesteps': 50, '_num_timesteps_at_start': 0, 'seed': 42, 'action_noise': None, 'start_time': 1663546781883758645, 'learning_rate': 0.0, 'tensorboard_log': None, 'lr_schedule': <function <lambda> at 0x7fef23d4d5a0>, '_last_obs': None, '_last_episode_starts': array([ True]), '_last_original_obs': array([[ 0.01415927,  0.01049814, -0.02205419, -0.09659386]],
+      dtype=float32), '_episode_num': 14, 'use_sde': False, 'sde_sample_freq': -1, '_current_progress_remaining': -4.12, 'ep_info_buffer': deque([{'r': 11.0, 'l': 11, 't': 0.04209}, {'r': 17.0, 'l': 17, 't': 0.044059}, {'r': 16.0, 'l': 16, 't': 0.047692}, {'r': 31.0, 'l': 31, 't': 0.052025}, {'r': 22.0, 'l': 22, 't': 0.05482}, {'r': 15.0, 'l': 15, 't': 0.056918}, {'r': 15.0, 'l': 15, 't': 0.05937}, {'r': 17.0, 'l': 17, 't': 0.061911}, {'r': 16.0, 'l': 16, 't': 0.063542}, {'r': 25.0, 'l': 25, 't': 0.06773}, {'r': 19.0, 'l': 19, 't': 0.070439}, {'r': 18.0, 'l': 18, 't': 0.072754}, {'r': 13.0, 'l': 13, 't': 0.074641}, {'r': 12.0, 'l': 12, 't': 0.076562}], maxlen=100), 'ep_success_buffer': deque([], maxlen=100), '_n_updates': 0, 'quantize_aware_training': True, 'buffer_size': 100000, 'batch_size': 64, 'learning_starts': 1000, 'tau': 1.0, 'gamma': 0.99, 'gradient_steps': 128, 'optimize_memory_usage': False, 'replay_buffer_class': <class 'stable_baselines3.common.buffers.ReplayBuffer'>, 'replay_buffer_kwargs': {}, 'train_freq': TrainFreq(frequency=256, unit=<TrainFrequencyUnit.STEP: 'step'>), 'actor': None, 'use_sde_at_warmup': False, 'fuse': True, 'exploration_initial_eps': 1.0, 'exploration_final_eps': 0.04, 'exploration_fraction': 0.16, 'target_update_interval': 10, '_n_calls': 256, 'max_grad_norm': 10, 'exploration_rate': 0.04, 'exploration_schedule': <function get_linear_fn.<locals>.func at 0x7fef23d4f490>, 'batch_norm_stats': [], 'batch_norm_stats_target': []}
+2022-09-18 19:41:40,014:INFO:base_class.py:759:Quantize aware training should not be enabled when loading a model right now as we making video. In the Initblock in the Q-Network we are setting the quantize_aware_training to False
+2022-09-18 19:41:40,014:INFO:base_class.py:769:Loading a model without an environment, this model cannot be trained until it has a valid environment.
+2022-09-18 19:41:40,014:INFO:base_class.py:770:The model is <stable_baselines3.dqn.dqn.DQN object at 0x7fef23d42380>
+2022-09-18 19:48:03,800:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:48:03,848:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:03,866:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:48:03,868:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:03,942:INFO:train.py:275:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f3866fc0b80>
+2022-09-18 19:48:03,942:INFO:train.py:278:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:03,944:INFO:train.py:279:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:03,944:INFO:train.py:280:Saving the trained agent
+2022-09-18 19:48:03,944:INFO:train.py:284:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:48:17,358:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:48:17,377:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:17,389:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:48:17,390:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:17,474:INFO:train.py:275:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fd3522a4b50>
+2022-09-18 19:48:17,475:INFO:train.py:278:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:17,477:INFO:train.py:279:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:17,477:INFO:train.py:280:Saving the trained agent
+2022-09-18 19:48:17,477:INFO:train.py:284:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:48:27,974:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:48:27,995:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:28,009:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:48:28,011:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:48:28,103:INFO:train.py:275:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fc261cb4e20>
+2022-09-18 19:48:28,103:INFO:train.py:278:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:28,106:INFO:train.py:279:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:48:28,106:INFO:train.py:280:Saving the trained agent
+2022-09-18 19:48:28,106:INFO:train.py:284:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:49:53,875:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:49:53,876:INFO:train.py:264:args_dict: {'algo': 'dqn', 'env': 'CartPole-v1', 'tensorboard_log': '', 'trained_agent': '', 'truncate_last_trajectory': True, 'n_timesteps': 50, 'num_threads': -1, 'log_interval': 100, 'eval_freq': 25000, 'optimization_log_path': None, 'eval_episodes': 5, 'n_eval_envs': 1, 'save_freq': -1, 'save_replay_buffer': False, 'log_folder': 'logs', 'seed': 42, 'vec_env': 'dummy', 'device': 'auto', 'n_trials': 500, 'max_total_trials': None, 'optimize_hyperparameters': False, 'no_optim_plots': False, 'n_jobs': 1, 'sampler': 'tpe', 'pruner': 'median', 'n_startup_trials': 10, 'n_evaluations': None, 'storage': None, 'study_name': None, 'verbose': 1, 'gym_packages': [], 'env_kwargs': None, 'hyperparams': None, 'yaml_file': None, 'uuid': False, 'track': False, 'wandb_project_name': 'sb3', 'wandb_entity': None, 'qat': True}
+2022-09-18 19:49:53,894:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:49:53,907:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:49:53,909:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:49:53,979:INFO:train.py:278:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f2747bb8c70>
+2022-09-18 19:49:53,979:INFO:train.py:281:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:49:53,980:INFO:train.py:282:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:49:53,981:INFO:train.py:283:Saving the trained agent
+2022-09-18 19:49:53,981:INFO:train.py:287:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:51:34,179:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:51:34,180:INFO:train.py:264:args_dict: {'algo': 'dqn', 'env': 'CartPole-v1', 'tensorboard_log': '', 'trained_agent': '', 'truncate_last_trajectory': True, 'n_timesteps': 50, 'num_threads': -1, 'log_interval': 100, 'eval_freq': 25000, 'optimization_log_path': None, 'eval_episodes': 5, 'n_eval_envs': 1, 'save_freq': -1, 'save_replay_buffer': False, 'log_folder': 'logs', 'seed': 42, 'vec_env': 'dummy', 'device': 'auto', 'n_trials': 500, 'max_total_trials': None, 'optimize_hyperparameters': False, 'no_optim_plots': False, 'n_jobs': 1, 'sampler': 'tpe', 'pruner': 'median', 'n_startup_trials': 10, 'n_evaluations': None, 'storage': None, 'study_name': None, 'verbose': 1, 'gym_packages': [], 'env_kwargs': None, 'hyperparams': None, 'yaml_file': None, 'uuid': False, 'track': False, 'wandb_project_name': 'sb3', 'wandb_entity': None, 'qat': True}
+2022-09-18 19:51:34,207:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:51:34,222:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:51:34,223:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:51:34,277:INFO:train.py:278:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f34900d4ee0>
+2022-09-18 19:51:34,277:INFO:train.py:281:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:51:34,278:INFO:train.py:282:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:51:34,279:INFO:train.py:283:Saving the trained agent
+2022-09-18 19:51:34,279:INFO:train.py:287:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:51:55,346:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:51:55,347:INFO:train.py:264:args_dict: {'algo': 'dqn', 'env': 'CartPole-v1', 'tensorboard_log': '', 'trained_agent': '', 'truncate_last_trajectory': True, 'n_timesteps': 50, 'num_threads': -1, 'log_interval': 100, 'eval_freq': 25000, 'optimization_log_path': None, 'eval_episodes': 5, 'n_eval_envs': 1, 'save_freq': -1, 'save_replay_buffer': False, 'log_folder': 'logs', 'seed': 42, 'vec_env': 'dummy', 'device': 'auto', 'n_trials': 500, 'max_total_trials': None, 'optimize_hyperparameters': False, 'no_optim_plots': False, 'n_jobs': 1, 'sampler': 'tpe', 'pruner': 'median', 'n_startup_trials': 10, 'n_evaluations': None, 'storage': None, 'study_name': None, 'verbose': 1, 'gym_packages': [], 'env_kwargs': None, 'hyperparams': None, 'yaml_file': None, 'uuid': False, 'track': False, 'wandb_project_name': 'sb3', 'wandb_entity': None, 'qat': True}
+2022-09-18 19:51:55,359:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:51:55,368:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:51:55,369:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:51:55,436:INFO:train.py:278:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7f0e8f2b8ca0>
+2022-09-18 19:51:55,436:INFO:train.py:281:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:51:55,438:INFO:train.py:282:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:51:55,438:INFO:train.py:283:Saving the trained agent
+2022-09-18 19:51:55,438:INFO:train.py:287:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:52:21,545:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:52:21,546:INFO:train.py:264:args_dict: {'algo': 'dqn', 'env': 'CartPole-v1', 'tensorboard_log': '', 'trained_agent': '', 'truncate_last_trajectory': True, 'n_timesteps': 50, 'num_threads': -1, 'log_interval': 100, 'eval_freq': 25000, 'optimization_log_path': None, 'eval_episodes': 5, 'n_eval_envs': 1, 'save_freq': -1, 'save_replay_buffer': False, 'log_folder': 'logs', 'seed': 42, 'vec_env': 'dummy', 'device': 'auto', 'n_trials': 500, 'max_total_trials': None, 'optimize_hyperparameters': False, 'no_optim_plots': False, 'n_jobs': 1, 'sampler': 'tpe', 'pruner': 'median', 'n_startup_trials': 10, 'n_evaluations': None, 'storage': None, 'study_name': None, 'verbose': 1, 'gym_packages': [], 'env_kwargs': None, 'hyperparams': None, 'yaml_file': None, 'uuid': False, 'track': False, 'wandb_project_name': 'sb3', 'wandb_entity': None, 'qat': True}
+2022-09-18 19:52:21,558:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:52:21,567:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:52:21,569:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:52:21,636:INFO:train.py:278:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fc3a35bcc70>
+2022-09-18 19:52:21,636:INFO:train.py:281:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:52:21,638:INFO:train.py:282:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:52:21,638:INFO:train.py:283:Saving the trained agent
+2022-09-18 19:52:21,638:INFO:train.py:287:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:53:13,525:INFO:train.py:155:Quantization Aware Training: 1
+2022-09-18 19:53:13,526:INFO:train.py:264:args_dict: {'algo': 'dqn', 'env': 'CartPole-v1', 'tensorboard_log': '', 'trained_agent': '', 'truncate_last_trajectory': True, 'n_timesteps': 50, 'num_threads': -1, 'log_interval': 100, 'eval_freq': 25000, 'optimization_log_path': None, 'eval_episodes': 5, 'n_eval_envs': 1, 'save_freq': -1, 'save_replay_buffer': False, 'log_folder': 'logs', 'seed': 42, 'vec_env': 'dummy', 'device': 'auto', 'n_trials': 500, 'max_total_trials': None, 'optimize_hyperparameters': False, 'no_optim_plots': False, 'n_jobs': 1, 'sampler': 'tpe', 'pruner': 'median', 'n_startup_trials': 10, 'n_evaluations': None, 'storage': None, 'study_name': None, 'verbose': 1, 'gym_packages': [], 'env_kwargs': None, 'hyperparams': None, 'yaml_file': None, 'uuid': False, 'track': False, 'wandb_project_name': 'sb3', 'wandb_entity': None, 'qat': True}
+2022-09-18 19:53:13,539:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:53:13,551:INFO:policies.py:214: What is q_net QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): QuantStub(
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (1): LinearReLU(
+      (0): Linear(in_features=4, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (2): Identity()
+    (3): LinearReLU(
+      (0): Linear(in_features=256, out_features=256, bias=True)
+      (1): ReLU()
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (4): Identity()
+    (5): Linear(
+      in_features=256, out_features=2, bias=True
+      (activation_post_process): FusedMovingAvgObsFakeQuantize(
+        fake_quant_enabled=tensor([1]), observer_enabled=tensor([1]), scale=tensor([1.]), zero_point=tensor([0], dtype=torch.int32), dtype=torch.quint8, quant_min=0, quant_max=127, qscheme=torch.per_tensor_affine, reduce_range=True
+        (activation_post_process): MovingAverageMinMaxObserver(min_val=inf, max_val=-inf)
+      )
+    )
+    (6): DeQuantStub()
+  )
+) after making the q_net model from DQN Policy
+2022-09-18 19:53:13,552:INFO:policies.py:80:Quantize Aware Training is enabled
+2022-09-18 19:53:13,615:INFO:train.py:278:Finished training dqn on CartPole-v1 with 42 seed and the resulting model is <stable_baselines3.dqn.dqn.DQN object at 0x7fa3714bcc70>
+2022-09-18 19:53:13,615:INFO:train.py:281:QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:53:13,617:INFO:train.py:282:The model policy of q target net is QNetwork(
+  (features_extractor): FlattenExtractor(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+  )
+  (q_net): Sequential(
+    (0): Quantize(scale=tensor([1.]), zero_point=tensor([0]), dtype=torch.quint8)
+    (1): QuantizedLinearReLU(in_features=4, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (2): Identity()
+    (3): QuantizedLinearReLU(in_features=256, out_features=256, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (4): Identity()
+    (5): QuantizedLinear(in_features=256, out_features=2, scale=1.0, zero_point=0, qscheme=torch.per_channel_affine)
+    (6): DeQuantize()
+  )
+)
+2022-09-18 19:53:13,617:INFO:train.py:283:Saving the trained agent
+2022-09-18 19:53:13,617:INFO:train.py:287:The trained model is saved differently because DQN is giving me error becauase of Quantization Aware Training
+2022-09-18 19:55:56,368:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 19:55:56,370:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 19:55:56,370:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 19:55:56,371:INFO:base_class.py:721:Load from the zip files done.
+2022-09-18 19:55:56,371:INFO:base_class.py:722:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:01:32,297:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:01:32,304:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:01:32,304:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:01:32,304:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:01:32,304:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:03:39,259:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:03:39,265:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:03:39,265:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:03:39,265:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:03:39,266:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:04:34,143:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:04:34,151:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:04:34,151:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:04:34,152:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:04:34,152:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:04:34,152:WARNING:base_class.py:735:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:05:34,149:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:05:34,155:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:05:34,155:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:05:34,155:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:05:34,155:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:05:34,156:WARNING:base_class.py:735:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:05:34,156:WARNING:base_class.py:746:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:08:49,663:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:08:49,672:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:08:49,673:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:08:49,673:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:08:49,673:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:08:49,674:WARNING:base_class.py:735:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:08:49,674:WARNING:base_class.py:746:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:08:49,674:WARNING:base_class.py:765:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:08:49,674:INFO:base_class.py:768:Creating new model instance.
+2022-09-18 20:08:49,674:INFO:base_class.py:769:What is the data: None
+2022-09-18 20:10:48,309:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:10:48,316:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:10:48,316:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:10:48,317:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:10:48,317:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:10:48,317:INFO:base_class.py:727:The arguements of the training are: logs/dqn/CartPole-v1_88/CartPole-v1/args.yml
+2022-09-18 20:10:48,317:WARNING:base_class.py:736:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:10:48,317:WARNING:base_class.py:747:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:10:48,318:WARNING:base_class.py:766:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:10:48,318:INFO:base_class.py:769:Creating new model instance.
+2022-09-18 20:10:48,318:INFO:base_class.py:770:What is the data: None
+2022-09-18 20:14:29,362:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:14:29,376:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:14:29,376:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:14:29,378:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:14:29,378:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:15:16,894:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:15:16,901:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:15:16,901:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:15:16,902:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:15:16,902:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:15:49,373:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:15:49,382:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:15:49,382:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:15:49,383:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:15:49,383:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:16:35,429:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:16:35,437:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:16:35,437:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:16:35,438:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:16:35,438:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:17:17,580:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:17:17,587:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:17:17,587:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:17:17,588:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:17:17,588:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:17:45,451:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:17:45,459:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:17:45,459:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:17:45,460:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:17:45,460:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:18:43,476:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:18:43,484:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:18:43,484:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:18:43,485:INFO:base_class.py:723:Load from the zip files done.
+2022-09-18 20:18:43,485:INFO:base_class.py:724:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:18:43,493:INFO:base_class.py:727:The arguments of the training are: OrderedDict([('algo', 'dqn'), ('device', 'auto'), ('env', 'CartPole-v1'), ('env_kwargs', None), ('eval_episodes', 5), ('eval_freq', 25000), ('gym_packages', []), ('hyperparams', None), ('log_folder', 'logs'), ('log_interval', 100), ('max_total_trials', None), ('n_eval_envs', 1), ('n_evaluations', None), ('n_jobs', 1), ('n_startup_trials', 10), ('n_timesteps', 50), ('n_trials', 500), ('no_optim_plots', False), ('num_threads', -1), ('optimization_log_path', None), ('optimize_hyperparameters', False), ('pruner', 'median'), ('qat', True), ('sampler', 'tpe'), ('save_freq', -1), ('save_replay_buffer', False), ('seed', 42), ('storage', None), ('study_name', None), ('tensorboard_log', ''), ('track', False), ('trained_agent', ''), ('truncate_last_trajectory', True), ('uuid', False), ('vec_env', 'dummy'), ('verbose', 1), ('wandb_entity', None), ('wandb_project_name', 'sb3'), ('yaml_file', None)])
+2022-09-18 20:18:43,494:INFO:base_class.py:729:The arguments of the training are: logs/dqn/CartPole-v1_88/CartPole-v1/args.yml
+2022-09-18 20:18:43,494:WARNING:base_class.py:738:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:18:43,494:WARNING:base_class.py:749:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:18:43,494:WARNING:base_class.py:768:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:18:43,494:INFO:base_class.py:771:Creating new model instance.
+2022-09-18 20:18:43,494:INFO:base_class.py:772:What is the data: None
+2022-09-18 20:20:50,584:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:20:50,591:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:20:50,591:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:20:50,591:INFO:base_class.py:724:Load from the zip files done.
+2022-09-18 20:20:50,591:INFO:base_class.py:725:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:20:50,599:INFO:base_class.py:730:The arguments of the training are: {'algo': 'dqn', 'device': 'auto', 'env': 'CartPole-v1', 'env_kwargs': None, 'eval_episodes': 5, 'eval_freq': 25000, 'gym_packages': [], 'hyperparams': None, 'log_folder': 'logs', 'log_interval': 100, 'max_total_trials': None, 'n_eval_envs': 1, 'n_evaluations': None, 'n_jobs': 1, 'n_startup_trials': 10, 'n_timesteps': 50, 'n_trials': 500, 'no_optim_plots': False, 'num_threads': -1, 'optimization_log_path': None, 'optimize_hyperparameters': False, 'pruner': 'median', 'qat': True, 'sampler': 'tpe', 'save_freq': -1, 'save_replay_buffer': False, 'seed': 42, 'storage': None, 'study_name': None, 'tensorboard_log': '', 'track': False, 'trained_agent': '', 'truncate_last_trajectory': True, 'uuid': False, 'vec_env': 'dummy', 'verbose': 1, 'wandb_entity': None, 'wandb_project_name': 'sb3', 'yaml_file': None}
+2022-09-18 20:20:50,599:WARNING:base_class.py:737:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:20:50,600:WARNING:base_class.py:748:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:20:50,600:WARNING:base_class.py:767:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:20:50,600:INFO:base_class.py:770:Creating new model instance.
+2022-09-18 20:20:50,600:INFO:base_class.py:771:What is the data: None
+2022-09-18 20:21:16,643:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:21:16,649:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:21:16,649:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:21:16,649:INFO:base_class.py:724:Load from the zip files done.
+2022-09-18 20:21:16,649:INFO:base_class.py:725:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:21:16,657:INFO:base_class.py:730:The arguments of the training are: {'algo': 'dqn', 'device': 'auto', 'env': 'CartPole-v1', 'env_kwargs': None, 'eval_episodes': 5, 'eval_freq': 25000, 'gym_packages': [], 'hyperparams': None, 'log_folder': 'logs', 'log_interval': 100, 'max_total_trials': None, 'n_eval_envs': 1, 'n_evaluations': None, 'n_jobs': 1, 'n_startup_trials': 10, 'n_timesteps': 50, 'n_trials': 500, 'no_optim_plots': False, 'num_threads': -1, 'optimization_log_path': None, 'optimize_hyperparameters': False, 'pruner': 'median', 'qat': True, 'sampler': 'tpe', 'save_freq': -1, 'save_replay_buffer': False, 'seed': 42, 'storage': None, 'study_name': None, 'tensorboard_log': '', 'track': False, 'trained_agent': '', 'truncate_last_trajectory': True, 'uuid': False, 'vec_env': 'dummy', 'verbose': 1, 'wandb_entity': None, 'wandb_project_name': 'sb3', 'yaml_file': None}
+2022-09-18 20:21:16,657:WARNING:base_class.py:737:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:21:16,658:WARNING:base_class.py:748:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:21:16,658:WARNING:base_class.py:767:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:21:16,658:INFO:base_class.py:770:Creating new model instance.
+2022-09-18 20:21:16,658:INFO:base_class.py:771:What is the data: None
+2022-09-18 20:21:26,996:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:21:27,002:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:21:27,003:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:21:27,003:INFO:base_class.py:724:Load from the zip files done.
+2022-09-18 20:21:27,003:INFO:base_class.py:725:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:21:27,010:INFO:base_class.py:730:The arguments of the training are: {'algo': 'dqn', 'device': 'auto', 'env': 'CartPole-v1', 'env_kwargs': None, 'eval_episodes': 5, 'eval_freq': 25000, 'gym_packages': [], 'hyperparams': None, 'log_folder': 'logs', 'log_interval': 100, 'max_total_trials': None, 'n_eval_envs': 1, 'n_evaluations': None, 'n_jobs': 1, 'n_startup_trials': 10, 'n_timesteps': 50, 'n_trials': 500, 'no_optim_plots': False, 'num_threads': -1, 'optimization_log_path': None, 'optimize_hyperparameters': False, 'pruner': 'median', 'qat': True, 'sampler': 'tpe', 'save_freq': -1, 'save_replay_buffer': False, 'seed': 42, 'storage': None, 'study_name': None, 'tensorboard_log': '', 'track': False, 'trained_agent': '', 'truncate_last_trajectory': True, 'uuid': False, 'vec_env': 'dummy', 'verbose': 1, 'wandb_entity': None, 'wandb_project_name': 'sb3', 'yaml_file': None}
+2022-09-18 20:21:27,011:WARNING:base_class.py:737:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:21:27,011:WARNING:base_class.py:748:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:21:27,011:WARNING:base_class.py:767:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:21:27,011:INFO:base_class.py:770:Creating new model instance.
+2022-09-18 20:21:27,011:INFO:base_class.py:771:What is the data: None
+2022-09-18 20:22:24,147:INFO:record_video.py:93:env_kwargs: {}
+2022-09-18 20:22:24,153:INFO:record_video.py:128: Path of the model is logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:22:24,153:INFO:record_video.py:129: Arguments of the model are {'seed': 0, 'buffer_size': 1}
+2022-09-18 20:22:24,154:INFO:base_class.py:724:Load from the zip files done.
+2022-09-18 20:22:24,154:INFO:base_class.py:725:Loading from the zip file from the path: logs/dqn/CartPole-v1_88/CartPole-v1.zip
+2022-09-18 20:22:24,163:INFO:base_class.py:730:The arguments of the training are: {'algo': 'dqn', 'device': 'auto', 'env': 'CartPole-v1', 'env_kwargs': None, 'eval_episodes': 5, 'eval_freq': 25000, 'gym_packages': [], 'hyperparams': None, 'log_folder': 'logs', 'log_interval': 100, 'max_total_trials': None, 'n_eval_envs': 1, 'n_evaluations': None, 'n_jobs': 1, 'n_startup_trials': 10, 'n_timesteps': 50, 'n_trials': 500, 'no_optim_plots': False, 'num_threads': -1, 'optimization_log_path': None, 'optimize_hyperparameters': False, 'pruner': 'median', 'qat': True, 'sampler': 'tpe', 'save_freq': -1, 'save_replay_buffer': False, 'seed': 42, 'storage': None, 'study_name': None, 'tensorboard_log': '', 'track': False, 'trained_agent': '', 'truncate_last_trajectory': True, 'uuid': False, 'vec_env': 'dummy', 'verbose': 1, 'wandb_entity': None, 'wandb_project_name': 'sb3', 'yaml_file': None}
+2022-09-18 20:22:24,163:WARNING:base_class.py:738:Could not remove device information from policy_kwargs: argument of type 'NoneType' is not iterable
+2022-09-18 20:22:24,163:WARNING:base_class.py:749:Could not verify new environment: argument of type 'NoneType' is not iterable
+2022-09-18 20:22:24,163:WARNING:base_class.py:768:Could not verify new environment: 'NoneType' object is not subscriptable
+2022-09-18 20:22:24,163:INFO:base_class.py:771:Creating new model instance.
+2022-09-18 20:22:24,163:INFO:base_class.py:772:What is the data: None

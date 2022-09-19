@@ -1,14 +1,18 @@
 import argparse
 import difflib
 import importlib
+import json
 import os
 import time
 import uuid
+from zipfile import ZipFile
 
 import gym
 import numpy as np
 import seaborn
 import torch as th
+
+from stable_baselines3.common.save_util import open_path
 from stable_baselines3.common.utils import set_random_seed
 import logging
 
@@ -18,7 +22,7 @@ from utils.exp_manager import ExperimentManager
 from utils.utils import ALGOS, StoreDict
 
 seaborn.set()
-logging.basicConfig( filename="tests.log" , level=logging.DEBUG,
+logging.basicConfig(filename="tests.log", level=logging.DEBUG,
                     format='%(asctime)s:%(levelname)s:%(filename)s:%(lineno)d:%(message)s')
 
 if __name__ == "__main__":  # noqa: C901
@@ -157,7 +161,7 @@ if __name__ == "__main__":  # noqa: C901
         ValueError('qat should be 0 means there is not quantize aware training or 1 means there is quantize aware '
                    'training')
         logging.error('qat should be 0 meaning there is not quantize aware training or 1 meaning there is quantize '
-                      'aware ') 
+                      'aware ')
         args.qat = False
 
     # Going through custom gym packages to let them register in the global registory
@@ -252,8 +256,12 @@ if __name__ == "__main__":  # noqa: C901
         no_optim_plots=args.no_optim_plots,
         device=args.device,
         yaml_file=args.yaml_file,
-        quantize_aware_training=args.qat
+        quantize_aware_training=args.qat,
+        fuse=args.qat
     )
+    ## Convert the args to a dict
+    args_dict = vars(args)
+    logging.info("args_dict: {}".format(args_dict))
 
     # Prepare experiment and launch hyperparameter optimization if needed
     results = exp_manager.setup_experiment()
@@ -267,11 +275,25 @@ if __name__ == "__main__":  # noqa: C901
         # Normal training
         if model is not None:
             exp_manager.learn(model)
-            logging.info(f'Finished training {args.algo} on {args.env} with {args.seed} seed and the resulting model is {model}')
+            logging.info(
+                f'Finished training {args.algo} on {args.env} with {args.seed} seed and the resulting model is {model}')
             if env_id == 'CartPole-v1':
                 logging.info(model.policy.q_net)
                 logging.info(f"The model policy of q target net is {model.policy.q_net_target}")
             logging.info("Saving the trained agent")
-            exp_manager.save_trained_model(model)
+            if args.algo != 'dqn':
+                exp_manager.save_trained_model(model)
+            else:
+                logging.info("The trained model is saved differently because DQN is giving me error becauase of "
+                             "Quantization "
+                             "Aware Training")
+                save_path = open_path(f"{exp_manager.save_path}/{exp_manager.env_name}", "w", verbose=0, suffix="zip")
+                with ZipFile(save_path, "w") as archive:
+                    with archive.open("q_net.pth", mode="w", force_zip64=True) as file:
+                        th.save(model.policy.q_net, file)
+                    with archive.open("q_net_target.pth", mode="w", force_zip64=True) as file:
+                        th.save(model.policy.q_net_target, file)
+                exp_manager.save_trained_model(model, save_model=False)
+
     else:
         exp_manager.hyperparameters_optimization()

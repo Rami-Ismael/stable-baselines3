@@ -90,6 +90,7 @@ if __name__ == "__main__":  # noqa: C901
     # overwrite with command line arguments
     if args.env_kwargs is not None:
         env_kwargs.update(args.env_kwargs)
+    logging.info(f"env_kwargs: {env_kwargs}")
 
     env = create_test_env(
         env_name.gym_id,
@@ -125,6 +126,8 @@ if __name__ == "__main__":  # noqa: C901
         }
 
     logging.info(f" Path of the model is {model_path}")
+    logging.info(f" Arguments of the model are {kwargs}")
+
 
     model = ALGOS[algo].load(model_path, env=env, custom_objects=custom_objects, **kwargs)
 
